@@ -1,3 +1,5 @@
 1. Create config
 2. Use new CMD
 3. git pull => git push
+4. I will add new text line
+5. New commit
