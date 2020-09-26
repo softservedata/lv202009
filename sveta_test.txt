@@ -1,5 +1,5 @@
 1. Create config
-2. Use new CMD
+2. 
 3. git pull => git push
 4. git remote add sfirsova
 5. added new branch firsova
