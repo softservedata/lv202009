@@ -12,7 +12,9 @@ public class Appl {
         System.out.println("++k : "+ ++k +" - firstly add 1, after that print");
 
         k=16;
-        System.out.println("k+++k : "+  k+++k +" - concatenation of k and ++k");
+        int str;
+        str=k+++k;
+        System.out.println("k+++k : "+  str +" - sum of 50 and ++k");
 
         k=16;
         int n=50;
