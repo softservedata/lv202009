@@ -1,8 +1,0 @@
-1. Create config
-2. CAT
-3. git pull => git push
-4. git remote add sfirsova
-5. added new branch firsova
-A
-ppp
-last changes
