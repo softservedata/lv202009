@@ -13,7 +13,7 @@ public class Appl {
 //	 	System.out.println("k=" + k/3);
 //	 	System.out.println("k=" + k%3);
 //	 	System.out.println("k=" + (k++<++k));
-	 	 k = 16;
+//	 	 k = 16;
 	 	 int[] array = {k++, ++k, k+++k, 50-(--k), k*k, k/3, k%3};
 	 	 Arrays.toString(array);
 	 	 for (int i = 0; i < 7; i++) {
