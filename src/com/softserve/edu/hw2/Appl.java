@@ -14,12 +14,12 @@ public class Appl {
         k=16;
         int str;
         str=k+++k;
-        System.out.println("k+++k : "+  str +" - sum of 50 and ++k");
+        System.out.println("k+++k : "+  str +" - sum of k and ++k");
 
         k=16;
         int n=50;
         int s=n---k;
-        System.out.println("50---k : "+ s +" - subtraction of 50 and --k");
+        System.out.println("50---k : "+ s +" - subtraction of 50-- and k");
 
         k=16;
         System.out.println("k*k: "+ k*k +" - k squared");
