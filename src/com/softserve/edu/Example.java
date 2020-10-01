@@ -1,7 +1,8 @@
 package com.softserve.edu;
 
 import java.io.IOException;
-import java.util.Scanner;
+import java.util.Arrays;
+import java.util.List;
 
 public class Example {
 
@@ -76,6 +77,19 @@ public class Example {
         p.print();
         p.print("Hello");
         p.print(" Hello ", " time ", 12);
-        p.print(" Hello ", " time ", 12, 00);
+        p.print(" Hello ", " time ", 12, 00, "1aa");
+        //
+        Student st0 = new Student("Ivan", 25);
+        Student st = new Student("Ira", 22);
+        st.setName("Olya");
+        st.setName("Petro");
+        System.out.println("\nname = " + st.getName());
+        // st.print();
+        //Student.print();
+        //List<Integer> ls = Arrays.asList(1, 3, 2, 6);
+        //Arrays a = new Arrays();
+        //System.out.println("Student st.hashCode() = "+ st.hashCode());
+        System.out.println("Student st = "+ st); // st.toString()
+        System.out.println("st0 = " + st0);
     }
 }

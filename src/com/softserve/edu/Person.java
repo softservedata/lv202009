@@ -1,8 +1,10 @@
 package com.softserve.edu;
 
 public class Person {
-    String name;
+    String name; // must private
 
+    //public Person() {} // added
+        
     // Overload
     public void print() {
         System.out.println(name);
