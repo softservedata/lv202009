@@ -2,30 +2,52 @@ package com.softserve.edu.hw2;
 
 public class Appl {
     public static void main(String[] args){
-        int k = 16;
-        //System.out.println(k++);
-        // k=16
+        {
+            int k = 16;
+            System.out.println(k++);
+            // k=16
+        }
+        {
+            int k = 16;
+            System.out.println(++k);
+            // K=17
+        }
 
-        //System.out.println(++k);
-        // K=18
+        {
+            int k = 16;
+            System.out.println(k++ + k);
+            // k=33
+        }
 
-        //System.out.println(k+++k);
-        // k=37
+        {
+            int k = 16;
+            System.out.println(50 - (--k));
+            // k= 35
+        }
 
-        //System.out.println(50-(--k));
-        // k= 32
+        {
+            int k = 16;
+            System.out.println(k * k);
+            // k=256
+        }
 
-        //System.out.println(k*k);
-        // k=324
+        {
+            int k = 16;
+            System.out.println(k / 3);
+            // k=5
+        }
 
-        //System.out.println(k/3);
-        // k=5
+        {
+            int k = 16;
+            System.out.println(k % 3);
+            // k=1
+        }
 
-        //System.out.println(k%3);
-        // k=1
-
-        System.out.println(k++<++k);
-        // true
+        {
+            int k = 16;
+            System.out.println(k++ < ++k);
+            // true
+        }
 
     }
 
