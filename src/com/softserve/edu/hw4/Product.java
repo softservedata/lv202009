@@ -1,25 +1,30 @@
 package com.softserve.edu.hw4;
 
-    public class Product {
-    /* 1) Створити клас Product з такими полями: назва продукту та ціна.
-   Клас повинен містити конструктор, гетери та сетери, метод toString().
-   В методі main створити чотири екземпляри типу Product.
-   Вивести на екран назву продукта з найбільшою ціною.
-Для коду використати пакет com.softserve.homework4
-Запушати код на github у свою вітку.
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
-*/
-    private String name;
-    private int price;
+import static java.util.Arrays.sort;
+
+public class Product {
+        /* 1) Створити клас Product з такими полями: назва продукту та ціна.
+       Клас повинен містити конструктор, гетери та сетери, метод toString().
+       В методі main створити чотири екземпляри типу Product.
+       Вивести на екран назву продукта з найбільшою ціною.
+    Для коду використати пакет com.softserve.homework4
+    Запушати код на github у свою вітку.
+
+    */
+        private String name;
+        private int price;
 
         // 1 constructor - ініціалізує поля,  назва = класс; нічого не повертає
-        public Product () {
+        public Product() {
             name = "";
             price = 0;
         }
 
         // 2 constructor - specified
-        public Product (String name, int price) {
+        public Product(String name, int price) {
             this.name = name;
             this.price = price;
         }
@@ -56,29 +61,18 @@ package com.softserve.edu.hw4;
                     '}';
         }
 
-        public static void main (String[] args) {
+        public static void main(String[] args) {
             // 1st ex
-            Product milk = new Product();
-            milk.price = 30;
-            milk.name = "Молоко";
+            Product milk = new Product("milk", 30);
+            Product butter = new Product("butter", 50);
+            Product coffee = new Product("coffee", 100);
+            Product bread = new Product("bread", 10);
 
-            // System.out.println("Продукт " + milk.name + " за ціною " + milk.price);
+            int[] array = new int[] {milk.price, butter.price, coffee.price, bread.price};
+            Arrays.sort(array);
+
+            System.out.println(array[array.length - 1]);
         }
-            // 2nd ex
-            Product bread = new Product();
-            bread.price = 10;
-            bread.name = "Хліб";
-
-            // 3rd ex
-            Product coffee = new Product();
-            coffee.price = 100;
-            coffee.name = "Кава";
-
-            // 4th ex
-            Product butter = new Product();
-            butter.price = 50;
-            butter.name = "Масло";
-
-       }
+    }
 
 
