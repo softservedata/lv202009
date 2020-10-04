@@ -1,4 +1,4 @@
-package com.softserve.edu.hw4;
+package com.softserve.homework4;
 
 import java.io.IOException;
 
