@@ -24,6 +24,14 @@ public class Product {
         this.productName = productName;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     public static void main(String [] ARGS){
         Product [] product=new Product[4];
         product[0]=new Product("Prod1",7.55);
@@ -40,13 +48,5 @@ public class Product {
             }
         }
         System.out.println("\nProduct "+productOfMaxPrice+" has max price "+maxPrice);
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 }
