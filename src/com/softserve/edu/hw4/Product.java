@@ -1,9 +1,7 @@
 package com.softserve.edu.hw4;
 
-import java.util.Arrays;
-import java.util.Comparator;
 
-public class Product {
+public class Product extends com.softserve.homework5.Product {
 
     private String productName;
     private float productPrice;
