@@ -1,17 +1,19 @@
 package com.softserve.homework5;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Iterator;
 
 public class Product {
 
 	private String productName;
 
-	public String getProducName() {
+	public String getProductName() {
 		return productName;
 	}
 
-	public void setProductName(String producName) {
-		this.productName = producName;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
 	private int productPrice;
@@ -24,9 +26,9 @@ public class Product {
 		this.productPrice = productPrice;
 	}
 
-	public Product(String producName, int productPrice) {
+	public Product(String productName, int productPrice) {
 		super();
-		this.productName = producName;
+		this.productName = productName;
 		this.productPrice = productPrice;
 	}
 
@@ -51,7 +53,7 @@ public class Product {
 
 	@Override
 	public int hashCode() {
-		final int productPrice = 31;
+		final int productPrice = getProductPrice();
 		int result = 1;
 		result = productPrice * result + productPrice;
 		result = productPrice * result + ((productName == null) ? 0 : productName.hashCode());
@@ -69,7 +71,7 @@ public class Product {
 		Product product7 = new Product("Rice", 42);
 		Product product8 = new Product("Yogurt", 17);
 		Product product9 = new Product("Cake", 275);
-		Product product10 = new Product("Meat", 120);
+		Product product10 = new Product("Meat", 420);
 
 		int max1 = Math.max(product1.productPrice, product2.productPrice);
 		int max2 = Math.max(product3.productPrice, product4.productPrice);
@@ -78,10 +80,11 @@ public class Product {
 		int max5 = Math.max(product7.productPrice, product8.productPrice);
 		int max6 = Math.max(max4, max5);
 		int max7 = Math.max(product9.productPrice, product7.productPrice);
-		int max8 = Math.max(max3, max6);
-		int max9 = Math.max(max7, max8);
+		int max8 = Math.max(product10.productPrice, max7);
+		int max9 = Math.max(max3, max6);
+		int max10 = Math.max(max8, max9);
 
-		int[] arr = { 34, 27, 13, 15, 60, 15, 42, 17, 275, 120 };
+		int[] arr = { 34, 27, 13, 15, 60, 15, 42, 17, 275, 420 };
 		int max = 0;
 		int imax = 0;
 		int i = 0;
@@ -92,34 +95,61 @@ public class Product {
 			}
 			i++;
 		}
-		System.out.print("Maximum = " + max);
-		System.out.println(" is in " + (imax + 1) + " place");
+		System.out.print("Maximum product price = " + max);
+		System.out.println(" it is in " + (imax + 1) + " place");
 
-		if (max9 == product1.productPrice) {
-			System.out.println("The most expensive product is " + product1.getProducName());
-		} else if (max9 == product2.productPrice) {
-			System.out.println("The most expensive product is " + product2.getProducName());
-		} else if (max9 == product3.productPrice) {
-			System.out.println("The most expensive product is " + product3.getProducName());
-		} else if (max9 == product4.productPrice) {
-			System.out.println("The most expensive product is " + product4.getProducName());
-		} else if (max9 == product5.productPrice) {
-			System.out.println("The most expensive product is " + product5.getProducName());
-		} else if (max9 == product6.productPrice) {
-			System.out.println("The most expensive product is " + product6.getProducName());
-		} else if (max9 == product7.productPrice) {
-			System.out.println("The most expensive product is " + product7.getProducName());
-		} else if (max9 == product8.productPrice) {
-			System.out.println("The most expensive product is " + product8.getProducName());
-		} else if (max9 == product9.productPrice) {
-			System.out.println("The most expensive product is " + product9.getProducName());
-		} else if (max9 == product10.productPrice) {
-			System.out.println("The most expensive product is " + product10.getProducName());
+		if (max10 == product1.productPrice) {
+			System.out.println("The most expensive product is " + product1.getProductName() + " product1.hashCode() = "
+					+ product1.hashCode());
+		} else if (max10 == product2.productPrice) {
+			System.out.println("The most expensive product is " + product2.getProductName() + " product2.hashCode() = "
+					+ product2.hashCode());
+		} else if (max10 == product3.productPrice) {
+			System.out.println("The most expensive product is " + product3.getProductName() + " product3.hashCode() = "
+					+ product3.hashCode());
+		} else if (max10 == product4.productPrice) {
+			System.out.println("The most expensive product is " + product4.getProductName() + " product4.hashCode() = "
+					+ product4.hashCode());
+		} else if (max10 == product5.productPrice) {
+			System.out.println("The most expensive product is " + product5.getProductName() + " product5.hashCode() = "
+					+ product5.hashCode());
+		} else if (max10 == product6.productPrice) {
+			System.out.println("The most expensive product is " + product6.getProductName() + " product6.hashCode() = "
+					+ product6.hashCode());
+		} else if (max10 == product7.productPrice) {
+			System.out.println("The most expensive product is " + product7.getProductName() + " product7.hashCode() = "
+					+ product7.hashCode());
+		} else if (max10 == product8.productPrice) {
+			System.out.println("The most expensive product is " + product8.getProductName() + " product8.hashCode() = "
+					+ product8.hashCode());
+		} else if (max10 == product9.productPrice) {
+			System.out.println("The most expensive product is " + product9.getProductName() + " product9.hashCode() = "
+					+ product9.hashCode());
+		} else if (max10 == product10.productPrice) {
+			System.out.println("The most expensive product is " + product10.getProductName()
+					+ " product10.hashCode() = " + product10.hashCode());
 		}
 
 		if (product4.equals(product6) == true) {
-			System.out.println("The same products were found. It is a " + product4.getProducName());
+			System.out.println("The same products were found - is a " + product4.getProductName());
 		}
 
+		HashMap<Integer, Integer> duplicates = new HashMap<Integer, Integer>();
+		for (int j = 0; j < arr.length; j++) {
+			if (duplicates.containsKey(arr[j])) {
+				int numberOfOccurances = duplicates.get(arr[j]);
+				duplicates.put(arr[j], (numberOfOccurances + 1));
+			} else {
+				duplicates.put(arr[j], 1);
+			}
+		}
+		Iterator<Integer> keys = duplicates.keySet().iterator();
+		System.out.print("Duplicated product prices equal: ");
+		while (keys.hasNext()) {
+			int k = keys.next();
+			if (duplicates.get(k) > 1) {
+				System.out.print(" " + k);
+			}
+		}
 	}
 }
