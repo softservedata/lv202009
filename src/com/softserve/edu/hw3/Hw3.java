@@ -1,43 +1,73 @@
 package com.softserve.edu.hw3;
 
-import javax.xml.soap.SOAPPart;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Hw3 {
-    public static void main(String[] args) throws IOException {
+    static final int NumbersCount = 3; // задаем количество вводимых чисел
 
-        //    Прочитати з клавіатури три числа (цілих або дійсних).
-        //    Вивести ці числа на екран у порядку зростання.
-        //    Для коду використати пакет com.softserve.edu.hw3
-        //    Закомітити та запушати код на github у свою вітку.
+    // ввід 3-х чисел з клавіатури
+    static int[] ReadData() throws IOException {
 
-        // ввід з клавіатури
+        //create reader stream
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Введіть число №1:");
-        String num1 = reader.readLine();
-        System.out.println("Введіть число №2:");
-        String num2 = reader.readLine();
-        System.out.println("Введіть число №3:");
-        String num3 = reader.readLine();
 
-        // стрoка -> число
-        int n1 = Integer.parseInt(num1);
-        int n2 = Integer.parseInt(num2);
-        int n3 = Integer.parseInt(num3);
+        int[] numbersArray = new int[NumbersCount];
 
-//        if (n1 >= n2 && n2 >= n3) System.out.print("\n" + n3 + " " + n2 + " " + n1);
-//        else if (n1 >= n3 && n3 >= n2) System.out.print("\n" + n2 + " " + n3 + " " + n1);
-//        else if (n2 >= n1 && n1 >= n3) System.out.print("\n" + n3 + " " + n1 + " " + n2);
-//        else if (n2 >= n3 && n3 >= n1) System.out.print("\n" + n1 + " " + n3 + " " + n2);
-//        else if (n3 >= n1 && n1 >= n2) System.out.print("\n" + n2 + " " + n1 + " " + n3);
-//        else if (n3 >= n2 && n2 >= n1)System.out.print("\n" + n1 + " " + n2 + " " + n3);
+        for (int i=0; i<NumbersCount; i++)
+        {
+            System.out.println("Please, input number:" + (i+1));
+            String data = reader.readLine();
 
-        int[] array = new int[] {n1, n2, n3};
-        Arrays.sort(array);
-        System.out.println(array[array.length - 1]);
+            numbersArray[i] = ConvertToInt(data);
+        }
+
+        System.out.println();
+
+        //close reader stream
+        reader.close();
+
+        return numbersArray;
+    }
+
+    //try to convert string to int
+    public static int ConvertToInt(String s)
+    {
+        try
+        {
+            return Integer.parseInt(s);
+        }
+        catch (Exception e) //catch exception and return '0' if string wasn't parsed to int
+        {
+            System.out.println("Input data is not a number:" + s);
+            System.out.println("Value 0 is returned");
+            return 0;
+        }
+    }
+
+    // output the iggest number
+    public static void PrintData(int[] numbersArray)
+    {
+        // System.out.println("Sorted numbers:");
+        // System.out.println();
+
+        //for (int i=0; i<NumbersCount; i++)
+        {
+            // System.out.print("number: " + (i+1));
+            // System.out.println(", value is:" + numbersArray[i]);
+            // Arrays.sort(numbersArray);
+            System.out.println("the biggest number is: " + (numbersArray[numbersArray.length -1]));
+        }
+    }
+
+    public static void main(String[] args) throws IOException
+    {
+        int[] numbersArray = ReadData();
+
+        Arrays.sort(numbersArray);
+
+        PrintData(numbersArray);
     }
 }
