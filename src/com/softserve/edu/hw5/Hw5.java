@@ -1,4 +1,4 @@
-package com.softserve.edu;
+package com.softserve.edu.hw5;
 
 import com.softserve.edu.hw4.Product;
 
@@ -7,37 +7,39 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Hw5 {
-
-    private static Object ProductUpd;
+    /* 1) Доповнити клас Product з Homework 4 методами equals() та hashCode().
+       В методі main створити масив із десяти екземплярів типу Product (можна захардкодити).
+       Знайти в масиві два одинакових продукти. Якщо такі знайдені, вивести їх на екран.
+        Для коду використати пакет com.softserve.homework5
+        Запушати код на github у свою вітку.
+    */
 
     public static void main(String[] args) {
-        ProductUpd milk = new ProductUpd("milk", 30);
-        ProductUpd coffee = new ProductUpd("coffee", 130);
-        ProductUpd rise = new ProductUpd("rise", 50);
-        ProductUpd onion = new ProductUpd("onion", 10);
-        ProductUpd butter = new ProductUpd("butter", 60);
-        ProductUpd potato = new ProductUpd("potato", 20);
-        ProductUpd cofe = new ProductUpd("coffee", 30);
-        ProductUpd tea = new ProductUpd("tea", 80);
-        ProductUpd sausage = new ProductUpd("sausage", 120);
-        ProductUpd bread = new ProductUpd("bread", 20);
+        ProductUpd[] array = {
+                new ProductUpd("apples", 30),
+                new ProductUpd("coffee", 130),
+                new ProductUpd("rise", 50),
+                new ProductUpd("onion", 10),
+                new ProductUpd("milk", 30),
+                new ProductUpd("potato", 20),
+                new ProductUpd("coffee", 30),
+                new ProductUpd("milk", 30),
+                new ProductUpd("sausage", 120),
+                new ProductUpd("carrot", 30)
+                };
 
+       // просто массив
+        // ProductUpd[] array = new ProductUpd[] {milk, coffee, onion, rise, onion, butter, potato, coffee, tea, sausage, bread};
 
-        // просто массив
-        ProductUpd[] array = new ProductUpd[] {milk, coffee, onion, butter, potato, cofe, tea, sausage, bread};
+        //System.out.println("All products: " + Arrays.toString(array));  // якщо масив з різними типами даних, то виводити його тільки так
 
-        for (int i = 0; i < array.length -1; i++) {
-            while (ProductUpd[i]) i++;
-            System.out.println(array[i] + "is repeat in: " + i + " ");
+        for (int i=0; i<array.length -1; i++) {
 
-            for (int j = i + 1; j < array.length; j++) {
-                if (array[i] == array[j]) {
-                    ProductUpd[j] = true;
-
-                    System.out.print(j + " ");
+            for (int j=0; j < i; j++) {
+                if (array[j].equals(array[i])) {
+                    System.out.println("Product " + array[j].getName() + " is repeat in: " +j+ " and " + i);
                 }
             }
-            System.out.println();
         }
 
 
@@ -45,17 +47,7 @@ public class Hw5 {
 //        ArrayList<ProductUpd> arrProd=new ArrayList<>();
 //        arrProd.add(milk);
 //        arrProd.add(coffee);
-//        arrProd.add(rise);
-//        arrProd.add(onion);
-//        arrProd.add(butter);
-//        arrProd.add(potato);
-//        arrProd.add(cofe);
-//        arrProd.add(tea);
-//        arrProd.add(sausage);
-//        arrProd.add(bread);
-        // Arrays.sort(array);
-
-        // System.out.println(array[array.length - 1]);
+//        ...
 
         // equals
         // System.out.println("Product 1 == Product 2: " + (ProductUpd1 == ProductUpd2));
@@ -64,12 +56,7 @@ public class Hw5 {
         // System.out.println(array[5]);
     }
     public static class ProductUpd {
-        /* 1) Доповнити клас Product з Homework 4 методами equals() та hashCode().
-   В методі main створити масив із десяти екземплярів типу Product (можна захардкодити).
-   Знайти в масиві два одинакових продукти. Якщо такі знайдені, вивести їх на екран.
-Для коду використати пакет com.softserve.homework5
-Запушати код на github у свою вітку.
-    */
+
         private String name;
         private int price;
 
