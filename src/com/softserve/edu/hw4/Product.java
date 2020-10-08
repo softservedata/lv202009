@@ -1,10 +1,15 @@
 package com.softserve.edu.hw4;
 
-public class product {
+public class Product {
     private String ProductName;
     private double ProductPrice;
 
-    public product(String ProductName, double ProductPrice) {
+    public Product() {
+        ProductName = "";
+        ProductPrice = 0;
+    }
+
+    public Product(String ProductName, double ProductPrice) {
         this.ProductName = ProductName;
         this.ProductPrice = ProductPrice;
     }
@@ -29,8 +34,8 @@ public class product {
         return String.format("Product Name: %s, Product Price: %.2f", this.ProductName, this.ProductPrice);
     }
 
-    public static product GetMaxProduct(product[] product_list) {
-        product ProductWithMaxPrice = product_list[0];
+    public static Product GetMaxProduct(Product[] product_list) {
+        Product ProductWithMaxPrice = product_list[0];
         for (int p = 1; p < product_list.length; p++) {
             if (product_list[p].getProductPrice() > ProductWithMaxPrice.getProductPrice()) {
                 ProductWithMaxPrice = product_list[p];
