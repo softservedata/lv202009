@@ -2,10 +2,10 @@ package com.softserve.homework5;
 
 import java.util.Objects;
 
-public class Product {
+public class Product implements Comparable{
 
-    private String productName;
-    private float productPrice;
+    protected String productName;
+    protected float productPrice;
 
     public Product() {
     }
@@ -79,4 +79,8 @@ public class Product {
     }
 
 
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
 }
