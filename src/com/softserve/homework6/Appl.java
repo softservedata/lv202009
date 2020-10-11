@@ -20,10 +20,34 @@ public class Appl {
 			System.out.println("Wine parameters = " + wine[k].toString());
 		}
 
+		int max = 0;
+		int imax = 0;
+		int z = 0;
+		while (z < wine.length) {
+			if (wine[z].productPrice > max) {
+				max = wine[z].productPrice;
+				imax = z + 1;
+			}
+			z++;
+		}
+		System.out.print("\nMaximum Wine price = " + max);
+		System.out.println("\n it is in " + imax + " place");
+
 		Coffee[] coffee = { new Coffee("Coffee beans", 200, 1), new Coffee("Instant coffee", 40, 2),
 				new Coffee("Coffee beans", 250, 3), new Coffee("Coffee beans", 185, 4),
 				new Coffee("Ground coffee", 76, 5), new Coffee("Ground coffee", 90, 6),
 				new Coffee("Instant coffee", 55, 7) };
+
+		int min = coffee[0].productAroma;
+		int imin = 0;
+		for (int s = 0; s < coffee.length; s++) {
+			if (coffee[s].productAroma < min) {
+				min = coffee[s].productAroma;
+				imin = s;
+			}
+		}
+		System.out.print("\nMinimum Coffee price = " + min);
+		System.out.println("\n it is in " + imin + " place");
 
 		for (Coffee cof : coffee) {
 			System.out.println(cof.toString());

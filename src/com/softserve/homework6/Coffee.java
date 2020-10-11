@@ -2,7 +2,7 @@ package com.softserve.homework6;
 
 public class Coffee extends Product{
 	
-	private int productAroma;
+	int productAroma;
 
 	public Coffee(String productName, int productPrice, int productAroma) {
 		super(productName, productPrice);
