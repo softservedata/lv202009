@@ -2,7 +2,7 @@ package com.softserve.homework5;
 
 import java.util.Objects;
 
-public class Product implements Comparable{
+public class Product {
 
     protected String productName;
     protected float productPrice;
@@ -18,14 +18,17 @@ public class Product implements Comparable{
     public String getProductName() {
         return productName;
     }
+
     public void setProductName(String productName) {
-                this.productName = productName;
+        this.productName = productName;
     }
+
     public float getProductPrice() {
-                return productPrice;
+        return productPrice;
     }
+
     public void setProductPrice(float productPrice) {
-                this.productPrice = productPrice;
+        this.productPrice = productPrice;
     }
 
     @Override
@@ -52,7 +55,7 @@ public class Product implements Comparable{
 
     public static void main(String[] args) {
 
-        Product [] products = new Product [10];
+        Product[] products = new Product[10];
 
         products[0] = new Product("Bag", 12.5f);
         products[1] = new Product("Backpack", 30);
@@ -65,11 +68,11 @@ public class Product implements Comparable{
         products[8] = new Product("Bag", 12.5f);
         products[9] = new Product("Coat", 234);
 
-        for (int i=0; i<= products.length-1; i++) {
-            for (int a=i+1; a<= products.length-1; a++) {
-                if ( products[i].equals(products[a]) ) {
+        for (int i = 0; i <= products.length - 1; i++) {
+            for (int a = i + 1; a <= products.length - 1; a++) {
+                if (products[i].equals(products[a])) {
                     System.out.println("Found same products:\n" + products[i] + "\nand" +
-                            "\n"+products[a]);
+                            "\n" + products[a]);
                     System.out.println();
                 }
             }
@@ -79,8 +82,4 @@ public class Product implements Comparable{
     }
 
 
-    @Override
-    public int compareTo(Object o) {
-        return 0;
-    }
 }

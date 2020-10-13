@@ -2,8 +2,6 @@ package com.softserve.homework6;
 
 import com.softserve.homework5.Product;
 
-import java.util.Arrays;
-
 public class Appl {
 
     public static void main(String[] args) {
