@@ -2,16 +2,18 @@ package com.softserve.edu.homework5;
 
 import java.util.Arrays;
 
-public class Product2 {
+public class Product {
     private String productName;
     private double price;
 
-    public Product2(String productName, double price){
+    public Product(){}
+
+    public Product(String productName, double price){
         this.productName=productName;
         this.price=price;
     }
 
-    @Override
+   // @Override
     public String toString(){
         return "\nProduct: "+getProductName()+"  Price: "+ "$"+getPrice();
     }
@@ -49,7 +51,7 @@ public class Product2 {
         if (this == obj) return true;
         if (obj == null) return false;
         if (getClass() != obj.getClass()) return false;
-        Product2 other = (Product2) obj;
+        Product other = (Product) obj;
         if (this.getPrice() != other.getPrice()) return false;
         if (this.getProductName() == null) {
             if (other.getProductName() != null) return false;
@@ -58,17 +60,17 @@ public class Product2 {
     }
 
     public static void main(String [] ARGS) {
-        Product2[] product = {
-                new Product2("Prod1", 7.55),
-                new Product2("Prod2", 4),
-                new Product2("Prod3", 12.2),
-                new Product2("Prod4", 1),
-                new Product2("Prod5", 9.5),
-                new Product2("Prod6", -1),
-                new Product2("Prod7", 15),
-                new Product2("Prod1", 7.55),
-                new Product2("Prod9", 6),
-                new Product2("Prod10", 2)};
+        Product[] product = {
+                new Product("Prod1", 7.55),
+                new Product("Prod2", 4),
+                new Product("Prod3", 12.2),
+                new Product("Prod4", 1),
+                new Product("Prod5", 9.5),
+                new Product("Prod6", -1),
+                new Product("Prod7", 15),
+                new Product("Prod1", 7.55),
+                new Product("Prod9", 6),
+                new Product("Prod10", 2)};
         System.out.println("ALL PRODUCTS: "+ Arrays.toString(product)+'\n');
         for(int j=product.length-1;j>=0;j--){
             for (int i=0;i<j;i++){

@@ -1,10 +1,11 @@
 package com.softserve.edu.hw2;
 
 
-public class Appl {
+public class Appl1 {
 
 
     public static void main (String [] ARGS){
+
         int k=16;
         System.out.println("k++ : " +k++ +" - firstly print, after that add 1");
 
@@ -33,5 +34,6 @@ public class Appl {
         k=16;
         boolean answer=k++<++k;
         System.out.println("k++<++k :"+ answer +" - comparison of k++ and ++k");
+
     }
 }

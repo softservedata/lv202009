@@ -2,11 +2,11 @@ package com.softserve.edu.homework4;
 
 import java.util.Arrays;
 
-public class Product {
+public class Product1 {
     private String productName;
     private double price;
 
-    public Product(String productName, double price){
+    public Product1(String productName, double price){
         this.productName=productName;
         this.price=price;
     }
@@ -33,11 +33,11 @@ public class Product {
     }
 
     public static void main(String [] ARGS){
-        Product [] product=new Product[4];
-        product[0]=new Product("Prod1",7.55);
-        product[1]=new Product("Prod2", 4);
-        product[2]=new Product("Prod3", 12.2);
-        product[3]=new Product("Prod4",1);
+        Product1[] product=new Product1[4];
+        product[0]=new Product1("Prod1",7.55);
+        product[1]=new Product1("Prod2", 4);
+        product[2]=new Product1("Prod3", 12.2);
+        product[3]=new Product1("Prod4",1);
         System.out.println("ALL PRODUCTS: "+ Arrays.toString(product));
         double maxPrice=product[0].getPrice();
         String productOfMaxPrice=product[0].getProductName();
