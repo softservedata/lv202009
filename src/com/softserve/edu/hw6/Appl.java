@@ -8,34 +8,19 @@ package com.softserve.edu.hw6;
 
 
 public class Appl {
-    private double length;
-    private double width;
-
-    // 1 constructor - ініціалізує поля,  назва = класс; нічого не повертає
-    public Appl() {
-        length = 0;
-        width = 0;
-    }
-
-    // constructor specified
-    public Appl(String name, double length, double width) {
-        this.length = length;
-        this.width = width;
-    }
-
-    public static void main(String[] args) {
+   public static void main(String[] args) {
         Figure[] figure = {
-                new Rectangle(10.5, 50);
-        new Rectangle(12.9, 20);
-        new Square(15);
-        new Square(10.5);
-        new Square(12.8);
-        }
+            new Rectangle(10.5, 50),
+            new Rectangle(12.9, 20),
+            new Square(15),
+            new Square(10.5),
+            new Square(12.8)
+        };
 
 
         for (Figure fig : figure) {
             System.out.println(fig.toString());
-            System.out.println("Figure's perimeter is equal : " + fig.getPerimeter();
+            System.out.println("Figure's perimeter is equal : " + fig.getPerimeter());
         }
         System.out.println("\n");
     }
