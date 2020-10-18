@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Hw5 {
+public class ProductUpdate {
     /* 1) Доповнити клас Product з Homework 4 методами equals() та hashCode().
        В методі main створити масив із десяти екземплярів типу Product (можна захардкодити).
        Знайти в масиві два одинакових продукти. Якщо такі знайдені, вивести їх на екран.
@@ -16,7 +16,7 @@ public class Hw5 {
 
     public static void main(String[] args) {
         ProductUpd[] array = {
-                new ProductUpd("apples", 30),
+                new ProductUpd("milk", 30),
                 new ProductUpd("coffee", 130),
                 new ProductUpd("rise", 50),
                 new ProductUpd("onion", 10),
@@ -28,6 +28,28 @@ public class Hw5 {
                 new ProductUpd("carrot", 30)
                 };
 
+
+        // System.out.println("All products: " + Arrays.toString(array));
+        // якщо масив з різними типами даних, то виводити його тільки так
+
+      //
+
+
+
+        // how to sort
+
+//        for (int = 0; i < array.length -1; i++) {
+//            for (int j = 0; j < array.length -1 - i; j++) {
+//                if (array[j].getPrice() > array[j + 1].getPrice())
+//                    ProductUpd temp = array[j];
+//                    array[j] = array[j+1];
+//                    array[j+1] = temp;
+//            }
+//        }
+//        System.out.println("Sorted array = " + Arrays.toString(array));
+
+
+
        // просто массив
         // ProductUpd[] array = new ProductUpd[] {milk, coffee, onion, rise, onion, butter, potato, coffee, tea, sausage, bread};
 
@@ -35,7 +57,7 @@ public class Hw5 {
 
         for (int i=0; i<array.length -1; i++) {
 
-            for (int j=0; j < i; j++) {
+            for (int j=i+1; j < array.length; j++) {
                 if (array[j].equals(array[i])) {
                     System.out.println("Product " + array[j].getName() + " is repeat in: " +j+ " and " + i);
                 }
