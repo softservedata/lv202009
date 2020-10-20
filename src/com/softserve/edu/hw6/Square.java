@@ -6,7 +6,6 @@ package com.softserve.edu.hw6;
    В методі main класу Appl створити масив, який складається із двох прямокутників та трьох квадратів.
    В циклі вивести периметри фігур. */
 public class Square implements Figure{
-
     private static double width;
 
     // Default Constructor

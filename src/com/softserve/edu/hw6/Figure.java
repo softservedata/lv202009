@@ -10,5 +10,22 @@ package com.softserve.edu.hw6;
 
 
 public interface Figure {
+    private static double length;
+    private static double width;
     public double getPerimeter();
+
+    Figure[] figure = {
+            new Rectangle(10.5, 50),
+            new Rectangle(12.9, 20),
+            new Square(15),
+            new Square(10.5),
+            new Square(12.8)
+    };
+
+
+        for (Figure fig : figure) {
+        System.out.println(fig.toString());
+        System.out.println("Figure's perimeter is equal : " + fig.getPerimeter());
+    }
+        System.out.println("\n");
 }

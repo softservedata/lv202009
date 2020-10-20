@@ -14,74 +14,66 @@ package com.softserve.edu.hw6;
 //        В методі main класу Appl створити масив продуктів, який містить об'єкти Сoffee та Wine.
 //        Знайти найдорожче Іспанське вино та найдешевшу найароматнішу каву.
 
-import com.softserve.edu.hw5.ProductUpdate;
+import com.softserve.edu.hw5.ProductUpd;
 
 public class Appl {
    public static void main(String[] args) {
 
+
        // Task 1 - Figure
-        Figure[] figure = {
-            new Rectangle(10.5, 50),
-            new Rectangle(12.9, 20),
-            new Square(15),
-            new Square(10.5),
-            new Square(12.8)
-        };
+       Figure[] figure = {
+               new Rectangle(10.5, 50),
+               new Rectangle(12.9, 20),
+               new Square(15),
+               new Square(10.5),
+               new Square(12.8)
+       };
 
 
-        for (Figure fig : figure) {
-            System.out.println(fig.toString());
-            System.out.println("Figure's perimeter is equal : " + fig.getPerimeter());
-        }
-        System.out.println("\n");
+       for (Figure fig : figure) {
+           System.out.println(fig.toString());
+           System.out.println("Figure's perimeter is equal : " + fig.getPerimeter());
+       }
+       System.out.println("\n");
 
-        // Task 2 - Coffee, Wine
-       ProductUpdate[] productUpdated = {
-           new Coffee("Lavazza", 100, 3),
-           new Coffee("Kimbo", 120.50, 4),
-           new Coffee("Dallmayer", 150, 7),
-           new Coffee("Fort", 50, 6),
-           new Wine("Sangiovese", 150, "Italy"),
-           new Wine("Tempranillo", 100, "Spain"),
-           new Wine("Mauro", 200, "Spain")
+       // Task 2 - Coffee, Wine
+       ProductUpd[] productUpdated = {
+               new Coffee("Lavazza", 100, 4),
+               new Coffee("Kimbo", 120.50, 4),
+               new Coffee("Dallmayer", 150, 7),
+               new Coffee("Fort", 50, 3),
+               new Wine("Sangiovese", 350, "Italy"),
+               new Wine("Tempranillo", 300, "Spain"),
+               new Wine("Mauro", 310, "Spain")
        };
 
        // the most expensive spanish wine
-       double maxWineSpain = 0;
-       String maxWinePriceSpain = "";
+       Wine maxExpensiveSpainWine = new Wine("",0,"");
 
        // the cheapest aroma coffee
-       double minCoffePrice = 0;
-       int maxAromaCoffee = 0;
-       String maxAromaCoffeeMinPrice = "";
+       Coffee maxAromaCoffeeWithMinPrice = new Coffee("",0,0);
 
        // executing
-       for (ProductUpdate p : productUpdated){
-           p.toString();
-
+       for (ProductUpd p : productUpdated){
            // Wine
            if(p instanceof Wine){
                if(((Wine) p).getWineCountry().equals("Spain")){
-                   if (((Wine) p).getWinePrice()>maxWineSpain){
-                       maxWineSpain=((Wine) p).getWinePrice();
-                       maxWinePriceSpain= ((Wine) p).getWineName();
+                   if (((Wine) p).getPrice()>maxExpensiveSpainWine.getPrice()){
+                       maxExpensiveSpainWine = (Wine) p;
                    }
                }
            }
 
            // Coffee
            else if (p instanceof Coffee){
-               if (((Coffee) p).getAroma() > maxAromaCoffee || ((Coffee) p).getAroma()==maxAromaCoffee){
-                   maxAromaCoffee=((Coffee) p).getAroma();
-                   if (((Coffee) p).getCoffeePrice() < minCoffePrice){
-                       minCoffePrice=((Coffee) p).getCoffeePrice();
-                       maxAromaCoffeeMinPrice= ((Coffee) p).getCoffeeName();
+               if (((Coffee) p).getAroma() >= maxAromaCoffeeWithMinPrice.getAroma()){
+                   if (((Coffee) p).getCoffeePrice() < maxAromaCoffeeWithMinPrice.getCoffeePrice()){
+                       maxAromaCoffeeWithMinPrice = (Coffee)p;
                    }
                }
            }
        }
-       System.out.println("\nThe most expensive spanish wine is "+maxWinePriceSpain+" - with price "+maxWineSpain + "UAH");
-       System.out.println("The cheapest aroma coffee is " + maxAromaCoffeeMinPrice+ " - with price " +minCoffePrice + "UAH");
-   }
 
-    }
+       System.out.println("\nThe most expensive spanish wine is "+ maxExpensiveSpainWine.toString());
+       System.out.println("The cheapest aroma coffee is " + maxAromaCoffeeWithMinPrice.toString());
+   }}

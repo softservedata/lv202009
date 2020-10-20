@@ -1,12 +1,8 @@
 package com.softserve.edu.hw5;
 
-import com.softserve.edu.hw4.Product;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
 
-public class ProductUpdate {
+
     /* 1) Доповнити клас Product з Homework 4 методами equals() та hashCode().
        В методі main створити масив із десяти екземплярів типу Product (можна захардкодити).
        Знайти в масиві два одинакових продукти. Якщо такі знайдені, вивести їх на екран.
@@ -14,7 +10,7 @@ public class ProductUpdate {
         Запушати код на github у свою вітку.
     */
 
-    public static void main(String[] args) {
+public static void main(String[] args) {
         ProductUpd[] array = {
                 new ProductUpd("milk", 30),
                 new ProductUpd("coffee", 130),
@@ -29,41 +25,14 @@ public class ProductUpdate {
                 };
 
 
-        // System.out.println("All products: " + Arrays.toString(array));
-        // якщо масив з різними типами даних, то виводити його тільки так
+        for (int i=0; i<array.length -1; i++){
 
-      //
-
-
-
-        // how to sort
-
-//        for (int = 0; i < array.length -1; i++) {
-//            for (int j = 0; j < array.length -1 - i; j++) {
-//                if (array[j].getPrice() > array[j + 1].getPrice())
-//                    ProductUpd temp = array[j];
-//                    array[j] = array[j+1];
-//                    array[j+1] = temp;
-//            }
-//        }
-//        System.out.println("Sorted array = " + Arrays.toString(array));
-
-
-
-       // просто массив
-        // ProductUpd[] array = new ProductUpd[] {milk, coffee, onion, rise, onion, butter, potato, coffee, tea, sausage, bread};
-
-        //System.out.println("All products: " + Arrays.toString(array));  // якщо масив з різними типами даних, то виводити його тільки так
-
-        for (int i=0; i<array.length -1; i++) {
-
-            for (int j=i+1; j < array.length; j++) {
-                if (array[j].equals(array[i])) {
-                    System.out.println("Product " + array[j].getName() + " is repeat in: " +j+ " and " + i);
-                }
-            }
+        for(int j=i+1;j<array.length;j++){
+        if(array[j].equals(array[i])){
+        System.out.println("Product "+array[j].getName()+" is repeat in: "+j+" and "+i);
         }
-
+        }
+        }
 
         // массив з можливістю розширення
 //        ArrayList<ProductUpd> arrProd=new ArrayList<>();
@@ -76,11 +45,11 @@ public class ProductUpdate {
 
         // System.out.println(array.length);
         // System.out.println(array[5]);
-    }
-    public static class ProductUpd {
 
-        private String name;
-        private int price;
+
+public class ProductUpd {
+        protected String name;
+        protected double price;
 
         // 1 constructor - ініціалізує поля,  назва = класс; нічого не повертає
         public ProductUpd() {
@@ -89,13 +58,13 @@ public class ProductUpdate {
         }
 
         // 2 constructor - specified
-        public ProductUpd(String name, int price) {
+        public ProductUpd(String name, double price) {
             this.name = name;
             this.price = price;
         }
 
         // getter for price
-        public int getPrice() {
+        public double getPrice() {
             return price;
         }
 
@@ -115,19 +84,16 @@ public class ProductUpdate {
             this.name = name;
         }
 
-
         // toString
         @Override
         // override - сигнал компілятору подивитись, чи в батьк. методі існує такий
         public String toString() {
-            return "ProductUpd{" +
+            return "ProductUpdate{" +
                     "name='" + name + '\'' +
                     ", price=" + price +
                     '}';
         }
 
-
-        // hash code, equals - методи для порівняння обєктів
 
         // equals - порівнює обєкти
         @Override
