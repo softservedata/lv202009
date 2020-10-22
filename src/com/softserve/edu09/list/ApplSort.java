@@ -1,7 +1,7 @@
 package com.softserve.edu09.list;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 public class ApplSort {
@@ -71,19 +71,20 @@ public class ApplSort {
         list.add("Second element");
         list.add(0, "One more first element");
         list.add("Second element");
-        //
-        //System.out.println("Origin list = " + list);
-//        System.out.println("\tOrigin list");
-//        for (int i = 0; i < list.size(); i++) {
-//            System.out.println("element[" + i + "] = " + list.get(i));
-//        }
-        //
-//        String element2 = list.get(1);
-//        System.out.println("element[2] = " + element2);
+        /*-
+        System.out.println("Origin list = " + list);
+        System.out.println("\tOrigin list");
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println("element[" + i + "] = " + list.get(i));
+        }
+        */
+        /*-
+        String element2 = list.get(1);
+        System.out.println("element[2] = " + element2);
         for (String current : list) {
             System.out.println(current);
         }
-        //
+        */
         /*-
         Iterator<String> iterator = list.iterator();
         while (iterator.hasNext()) {
@@ -97,26 +98,29 @@ public class ApplSort {
         //int n = list.size();
         for (int i = 0; i < list.size(); i++) {
         //for (int i = 0; i < n; i++) {
-            System.out.println(list.get(i));
+            System.out.println("reviewing ... " + list.get(i));
             if (list.get(i).contains("Second")) {
                 list.remove(i); // Architecture Error
             }
         }
-        //
+        System.out.println("Updated list = " + list);
+        */
+        /*-
         System.out.println("\nDeleting ...");
         for (String current : list) {
-            System.out.println(current);
+            System.out.println("reviewing ... " + current);
             if (current.contains("Second")) {
                 list.remove(current);
             }
         }
+        System.out.println("Updated list = " + list);
         */
-        /*-
+        // /*-
         System.out.println("\nDeleting ...");
         Iterator<String> iterat = list.iterator();
         while(iterat.hasNext()) {
             String current = iterat.next();
-            System.out.println(current);
+            System.out.println("reviewing ... " + current);
             if (current.contains("Second")) {
                 iterat.remove();
             }
@@ -126,6 +130,6 @@ public class ApplSort {
         for (String current : list) {
             System.out.println(current);
         }
-        */
+        // */
     }
 }
