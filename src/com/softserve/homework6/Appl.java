@@ -15,6 +15,7 @@ public class Appl {
         for (Figure figure : figures) {
             System.out.println(figure.toString());
         }
+        
         Product[] products = new Product[8];
         products[0] = new Coffee("Galka", 2, 5);
         products[1] = new Coffee("Lavazza", 5, 10);
