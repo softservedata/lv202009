@@ -1,6 +1,4 @@
-package com.softserve.edu.homework6;
-
-import com.softserve.edu.homework5.Product;
+package com.softserve.edu.homework7;
 
 public class NumbersList implements Comparable<NumbersList>{
     private int number;

@@ -2,6 +2,7 @@ package com.softserve.edu.homework6;
 
 
 import com.softserve.edu.homework5.Product;
+import com.softserve.edu.homework7.NumbersList;
 
 import java.util.*;
 
@@ -61,37 +62,6 @@ public class Appl {
         }
         System.out.println("\nThe most expensive spanish wine is '"+maxPriceProductName+"' - $"+maxWinePrice);
         System.out.println("The cheapest aromatic coffee is '"+minPriceMaxAromaCoffee+"' - $"+minCoffeePrice);
-
-        //************************************ HW for lesson 19.10.2020:
-
-        List<NumbersList> list1=new ArrayList();
-        List<NumbersList> list2=new ArrayList();
-
-        list1.add(new NumbersList(1));
-        list1.add(new NumbersList(3));
-        list1.add(new NumbersList(22));
-        list1.add(new NumbersList(1));
-        list1.add(new NumbersList(9));
-        list2.add(new NumbersList(22));
-        list2.add(new NumbersList(3));
-        list2.add(new NumbersList(3));
-        list2.add(new NumbersList(9));
-        list2.add(new NumbersList(9));
-        list2.add(new NumbersList(1));
-        System.out.println("Array1: "+Arrays.asList(list1));
-        System.out.println("Array2: "+Arrays.asList(list2));
-        Collections.sort(list1);
-        Collections.sort(list2);
-        Set set1=new TreeSet();
-        Set set2=new TreeSet();
-        set1.addAll(list1);
-        set2.addAll(list2);
-        System.out.println(set1 + "\n"+set2);
-        if (set1.equals(set2)){
-            System.out.println("hash1="+set1.hashCode()+"  \t hash2="+set2.hashCode());
-            System.out.println("Numbers in the lists are the same");
-        } else System.out.println("Numbers in the lists are different");
-
 
     }
 }
