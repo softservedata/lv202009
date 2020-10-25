@@ -10,7 +10,6 @@ public class Appl8 {
     List<Integer> list1=new ArrayList();
     List<Integer> list2=new ArrayList();
     List<Integer> newList=new ArrayList<>();
-
         list1.add(7);
         list1.add(3);
         list1.add(22);
