@@ -37,6 +37,9 @@ public class Coffee extends Product {
         if (obj instanceof Coffee) {
             other = (Coffee) obj;
         }
+        if (other == null) {
+            return false;
+        }
         return aromat == other.aromat;
     }
 
@@ -47,7 +50,7 @@ public class Coffee extends Product {
         int endIndex = result.length() - 1;
         result = result.substring(beginIndex, endIndex);
         return "Coffee [" + result
-                +", aromat=" + aromat + "]";
+                +", aromat = " + aromat + "]";
     }
     
     

@@ -1,18 +1,18 @@
 package com.softserve.hw06;
 
 public class Wine extends Product {
-    private String country;
+    private WineCountry country;
 
-    public Wine(String country, double price) {
+    public Wine(WineCountry country, double price) {
         super("Wine", price);
         this.country = country;
     }
 
-    public String getCountry() {
+    public WineCountry getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
+    public void setCountry(WineCountry country) {
         this.country = country;
     }
 
@@ -56,7 +56,7 @@ public class Wine extends Product {
         int endIndex = result.length() - 1;
         result = result.substring(beginIndex, endIndex);
         return "Wine [" + result
-                +", country=" + country + "]";
+                +", country = " + country.name() + "]";
     }
     
 }
