@@ -2,31 +2,51 @@ package com.softserve.edu.hw6;
 
 
 /*Написати інтерфейс Figure із методом обчислення периметру.
-   Написати два класи Rectangle та Square, які наслідують та реалізують інтерфейс Figure.
+   Написати два класи Rectangle.java та Square, які наслідують та реалізують інтерфейс Figure.
    В методі main класу Appl створити масив, який складається із двох прямокутників та трьох квадратів.
    В циклі вивести периметри фігур. */
+
+import java.util.Objects;
+
 public class Square implements Figure{
-    private static double width;
+    private Rectangle rectangle;
 
     // Default Constructor
-    public Square() {
-        width=0.0;
-       }
-
-    // spec Constructor
     public Square(double width) {
-        this.width = width;
+        rectangle = new Rectangle(width, width);
        }
 
-    public static double getWidth() {
-        return width;
+    public double getWidth() {
+        return rectangle.getWidth();
     }
 
-    public static void setWidth(double width) {
-        Square.width = width;
+    @Override
+    public String toString() {
+        return "Square{ " +
+                "width= " + getWidth() +
+                '}';
     }
 
+    // використовуємо існуючий функціонал, той, що для прямокутника
+    @Override
     public double getPerimeter() {
-        return width*4;
+        return rectangle.getPerimeter();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Square)) return false;
+        Square square = (Square) o;
+        return Objects.equals(rectangle, square.rectangle);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(rectangle);
+    }
+
+
+    // To do: compareTo()
+
 }

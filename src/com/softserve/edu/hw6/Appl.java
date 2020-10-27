@@ -1,8 +1,7 @@
 package com.softserve.edu.hw6;
 
-
 /*Написати інтерфейс Figure із методом обчислення периметру.
-   Написати два класи Rectangle та Square, які наслідують та реалізують інтерфейс Figure.
+   Написати два класи Rectangle.java та Square, які наслідують та реалізують інтерфейс Figure.
    В методі main класу Appl створити масив, який складається із двох прямокутників та трьох квадратів.
    В циклі вивести периметри фігур. */
 
@@ -14,66 +13,155 @@ package com.softserve.edu.hw6;
 //        В методі main класу Appl створити масив продуктів, який містить об'єкти Сoffee та Wine.
 //        Знайти найдорожче Іспанське вино та найдешевшу найароматнішу каву.
 
-import com.softserve.edu.hw5.ProductUpd;
-
 public class Appl {
-   public static void main(String[] args) {
+    public static void main(String[] args) {
+
+        /* ---------------------------------*/
+        // Task 1 - Figure
+        Figure[] figures = {
+                new Rectangle(10.5, 50),
+                new Rectangle(12.9, 20),
+                new Rectangle(5, 6),
+                new Rectangle(10, 2),
+                new Square(15),
+                new Square(10.5),
+                new Square(12.8)
+        };
+
+        System.out.println("Task Figures - get perimeters\n");
+        for (int i = 0; i < figures.length; i++) {
+            System.out.println("Perimeter = " + figures[i].getPerimeter()
+                    + " Object = " + figures[i]);
+        }
 
 
-       // Task 1 - Figure
-       Figure[] figure = {
-               new Rectangle(10.5, 50),
-               new Rectangle(12.9, 20),
-               new Square(15),
-               new Square(10.5),
-               new Square(12.8)
-       };
+        /*----------------------------------------*/
+        // Task 2 - Coffee, Wine
+        Product[] products = {
+                new Coffee("Fort", 100, 4),
+                new Coffee("Lavazza", 120.50, 8),
+                new Coffee("Dallmayer", 90, 9),
+                new Coffee("Kimbo", 50, 4),
+                new Wine(WineCounrty.SPAIN, 350),
+                new Wine(WineCounrty.SPAIN, 450),
+                new Wine(WineCounrty.UKRAINE, 150),
+                new Wine(WineCounrty.FRANCE, 300),
+                new Wine(WineCounrty.SPAIN, 310)
+        };
+
+        /* -------------------------------------------------------*/
+        // Task Coffee - the cheapest aroma coffee - Yaroslav
+
+        Product startCoffee = null;
+        for (int i = 0; i < products.length; i++) {
+            if (products[i] instanceof Coffee) {
+                startCoffee = products[i];
+                break;
+            }
+        }
+
+        if ((startCoffee != null) && (startCoffee instanceof Coffee)) {
+            Coffee minCoffee = (Coffee) startCoffee;
+
+            for (int i = 0; i < products.length; i++) {
+                if (products[i] instanceof Coffee) {
+                    Coffee currentCoffee = (Coffee) products[i];
+                    if (minCoffee.getCoffeeAroma() < currentCoffee.getCoffeeAroma()) {
+                        minCoffee = currentCoffee;
+                        continue;
+                    } else if ((minCoffee.getCoffeeAroma() == currentCoffee.getCoffeeAroma())
+                            && (minCoffee.getPrice() > currentCoffee.getPrice())) {
+                        minCoffee = currentCoffee;
+                    }
+                }
+            }
+            System.out.println("\nTask Coffe - find the cheapest aroma coffee\n");
+            System.out.println("Coffee = " + minCoffee + "\n");
+        } else {
+            System.out.println("Coffee not found\n");
+        }
 
 
-       for (Figure fig : figure) {
-           System.out.println(fig.toString());
-           System.out.println("Figure's perimeter is equal : " + fig.getPerimeter());
-       }
-       System.out.println("\n");
+        /* -----------------------------------------------------*/
+        // Task - the most expensive spanish wine (Yaroslav)
 
-       // Task 2 - Coffee, Wine
-       ProductUpd[] productUpdated = {
-               new Coffee("Lavazza", 100, 4),
-               new Coffee("Kimbo", 120.50, 4),
-               new Coffee("Dallmayer", 150, 7),
-               new Coffee("Fort", 50, 3),
-               new Wine("Sangiovese", 350, "Italy"),
-               new Wine("Tempranillo", 300, "Spain"),
-               new Wine("Mauro", 310, "Spain")
-       };
+        Product startWine = null;
+        for (int i = 0; i < products.length; i++) {
+            if (products[i] instanceof Wine) {
+                startWine = products[i];
+                break;
+            }
+        }
+        if ((startWine != null) && (startWine instanceof Wine)) {
+            Wine maxWine = (Wine) startWine;
 
-       // the most expensive spanish wine
-       Wine maxExpensiveSpainWine = new Wine("",0,"");
+            for (int i = 0; i < products.length; i++) {
+                if (products[i] instanceof Wine) {
+                    Wine currentWine = (Wine) products[i];
+                    if ((currentWine.getCounrty() == WineCounrty.SPAIN)
+                            && (maxWine.getPrice() < currentWine.getPrice())) {
+                        maxWine = currentWine;
+                    }
+                }
+            }
+            System.out.println("Task Wine - find the most expensive spanish wine\n");
+            System.out.println("Wine = " + maxWine+ "\n");
+        } else {
+            System.out.println("Wine not found\n");
+        }
+    }
 
-       // the cheapest aroma coffee
-       Coffee maxAromaCoffeeWithMinPrice = new Coffee("",0,0);
 
-       // executing
-       for (ProductUpd p : productUpdated){
-           // Wine
-           if(p instanceof Wine){
-               if(((Wine) p).getWineCountry().equals("Spain")){
-                   if (((Wine) p).getPrice()>maxExpensiveSpainWine.getPrice()){
-                       maxExpensiveSpainWine = (Wine) p;
-                   }
-               }
-           }
+    // Task 7
+//        1) Задати два списки (ArrayList), які містять цілі значення.
+//        Кількість елементів у списках може бути різною, а самі елементи можуть дублюватися.
+//        Вияснити, чи контент елементів у списках співпадає.
+//        Наприклад, вміст наступних списків є однаковий [1, 2, 1, 2, 3] та [3, 3, 2, 2, 1, 1]
+//        Для коду використати пакет com.softserve.homework6
 
-           // Coffee
-           else if (p instanceof Coffee){
-               if (((Coffee) p).getAroma() >= maxAromaCoffeeWithMinPrice.getAroma()){
-                   if (((Coffee) p).getCoffeePrice() < maxAromaCoffeeWithMinPrice.getCoffeePrice()){
-                       maxAromaCoffeeWithMinPrice = (Coffee)p;
-                   }
-               }
-           }
-       }
+/*
+    ArrayList<Integer> list1 = new ArrayList<Integer>();
+    ArrayList<Integer> list2 = new ArrayList<Integer>();
 
-       System.out.println("\nThe most expensive spanish wine is "+ maxExpensiveSpainWine.toString());
-       System.out.println("The cheapest aroma coffee is " + maxAromaCoffeeWithMinPrice.toString());
-   }}
+        list1.add(3);
+        list1.add(1);
+        list1.add(10);
+        list1.add(1);
+        list1.add(90);
+
+        list2.add(22);
+        list2.add(3);
+        list2.add(3);
+        list2.add(9);
+        list2.add(9);
+        list2.add(3);
+
+        System.out.println("Array1: "+Arrays.asList(list1));
+        System.out.println("Array2: "+Arrays.asList(list2));
+
+        Collections.sort(list1);
+        Collections.sort(list2);
+
+        Set set1=new TreeSet();
+        Set set2=new TreeSet();
+
+        set1.addAll(list1);
+        set2.addAll(list2);
+
+        System.out.println(set1 + "\n"+set2);
+
+        if (set1.equals(set2))
+
+    {
+        System.out.println("hash1=" + set1.hashCode() + "  \t hash2=" + set2.hashCode());
+        System.out.println("Numbers in the lists are the same");
+    }
+        else System.out.println("Numbers in the lists are different");
+}
+*/
+
+    /*-----------------------------------------*/
+    // Task 8
+
+
+}

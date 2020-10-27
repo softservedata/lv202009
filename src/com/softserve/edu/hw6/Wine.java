@@ -1,46 +1,60 @@
 package com.softserve.edu.hw6;
 
-import com.softserve.edu.hw5.ProductUpd;
+public class Wine extends Product {
+    private WineCounrty counrty;
 
-import java.util.Objects;
-
-public class Wine extends ProductUpd {
-    private String wineCountry;
-
-    public Wine (String wineName, double winePrice, String wineCountry) {
-        super(wineName, winePrice);
-        this.setWineCountry(wineCountry);
+    public Wine(WineCounrty country, double winePrice) {
+        super("Wine", winePrice);
+        this.counrty = country;
     }
 
-    public String getWineCountry() {
-        return wineCountry;
+    public WineCounrty getCounrty() {
+        return counrty;
     }
 
-    public void setWineCountry(String wineCountry) {
-        this.wineCountry = wineCountry;
-    }
-
-    @Override
-    public String toString() {
-        return "Wine{" +
-                "wineName='" + name + '\'' +
-                ", winePrice=" + price +
-                ", wineCountry='" + wineCountry + '\'' +
-                '}';
+    public void setCounrty(WineCounrty counrty)
+    {
+        this.counrty = counrty;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Wine)) return false;
-        Wine wine = (Wine) o;
-        return Double.compare(wine.price, price) == 0 &&
-                wine.name.equals(name) &&
-                wine.wineCountry.equals(wineCountry);
-    }
+        if (!super.equals(o)
+                || (getClass() != o.getClass())) {
+            return false;
+        }
+
+        Wine othwine = null;
+        if (o instanceof Wine) {
+            othwine = (Wine) o;
+        }
+        if ((othwine == null)
+            || ((counrty == null) && (othwine.counrty != null))
+            || ((counrty != null) && (othwine.counrty == null))
+        ) {
+            return false;
+        }
+        if ((counrty == null) && (othwine.counrty == null)) {
+            return true;
+        }
+        return counrty.equals(othwine.counrty);
+        }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, price, wineCountry);
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + ((counrty == null) ? 0 : counrty.hashCode());
+        return result;
     }
-}
+
+    @Override
+    public String toString() {
+        String result = super.toString();
+        int beginIndex = result.indexOf("[") + 1;
+        int endIndex = result.length() -1;
+        result = result.substring(beginIndex, endIndex);
+        return "Wine[" + result + ", country = " + counrty.name() + "]";
+    }
+    }
