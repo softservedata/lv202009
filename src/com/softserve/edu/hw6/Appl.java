@@ -142,21 +142,7 @@ public class Appl {
         Collections.sort(list1);
         Collections.sort(list2);
 
-        Set set1=new TreeSet();
-        Set set2=new TreeSet();
 
-        set1.addAll(list1);
-        set2.addAll(list2);
-
-        System.out.println(set1 + "\n"+set2);
-
-        if (set1.equals(set2))
-
-    {
-        System.out.println("hash1=" + set1.hashCode() + "  \t hash2=" + set2.hashCode());
-        System.out.println("Numbers in the lists are the same");
-    }
-        else System.out.println("Numbers in the lists are different");
 }
 */
 
