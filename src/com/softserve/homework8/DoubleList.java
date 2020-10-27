@@ -1,6 +1,9 @@
 package com.softserve.homework8;
 
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
+import java.util.Set;
 
 public class DoubleList implements Comparable<DoubleList> {
 
@@ -8,7 +11,6 @@ public class DoubleList implements Comparable<DoubleList> {
 		super();
 		this.value = string;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -26,7 +28,8 @@ public class DoubleList implements Comparable<DoubleList> {
 
 	@Override
 	public String toString() {
-		return "DoubleList [value=" + value + "]";
+		//return "DoubleList [value=" + value + "]";
+		return value;
 	}
 
 	public String getValue() {
@@ -50,9 +53,20 @@ public class DoubleList implements Comparable<DoubleList> {
 	}
 
 	static class ValueComparator implements Comparator<Object> {
-		public int compare(Object v1, Object v2) {
-			return ((DoubleList) v1).getValue().compareTo(((DoubleList) v2).getValue());
+		public int compare(Object set, Object set1) {
+			return ((DoubleList) set).getValue().compareTo(((DoubleList) set1).getValue());
 		}
+	}
+
+	public static List<DoubleList> bothLists(Set<DoubleList> set, Set<DoubleList> set1) {
+		List<DoubleList> result = new ArrayList<>();
+		for (DoubleList current : set) {
+			if (set1.contains(current)) {
+				result.add(current);
+				set1.remove(current);
+			}
+		}
+		return result;
 	}
 
 	@Override
