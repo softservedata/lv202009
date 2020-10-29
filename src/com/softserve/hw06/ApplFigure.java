@@ -1,7 +1,5 @@
 package com.softserve.hw06;
 
-import sun.applet.Main;
-
 public class ApplFigure {
     public static void main(String[] args) {
         Figure[] figures = { new Rectangle(5, 6),
