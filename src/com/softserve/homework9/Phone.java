@@ -27,6 +27,7 @@ public class Phone {
 
 		for (Iterator<Entry<Object, String>> i = phoneNum.entrySet().iterator(); i.hasNext();) {
 			Map.Entry<Object, String> entry = i.next();
+			
 			// for (int j = 1; j < phoneNum.size(); j++) {
 			// System.out.println("phone = " + j + " " + entry.getValue());
 			// }
@@ -39,6 +40,8 @@ public class Phone {
 			Pattern p = Pattern.compile(pattern);
 			Matcher m = p.matcher(entry.getValue());
 
+			
+			
 			String pattern1 = "[ |-]+[ -a-zA-Z_0-9]+";
 			Pattern p1 = Pattern.compile(pattern1);
 			Matcher m1 = p1.matcher(entry.getValue());
