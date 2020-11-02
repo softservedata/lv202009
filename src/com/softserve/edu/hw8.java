@@ -9,4 +9,7 @@ Homework 8 (from 22.10.2020)
    На підставі цих двох лістів створити новий List, який містить лише спільні елементи з обох заданих списків.
 Для коду використати пакет com.softserve.homework8
  */
+    public static void main(String[] args) {
+
+    }
 }
