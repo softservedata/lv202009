@@ -1,5 +1,6 @@
 package com.softserve.homework9;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -21,41 +22,44 @@ public class Phone {
 		phoneNum.put(9, "044 435-62-18");
 		phoneNum.put(10, "721-73-45");
 
-//        for (Map.Entry<Object, String> entry : phoneNum.entrySet()) {
-//            System.out.println("phone = " + entry.getValue());
-//        }
+		System.out.println("\n" + phoneNum.size());
+		System.out.println("\n" + phoneNum.values());
+		System.out.println("\n" + phoneNum.toString() + "\n");
 
 		for (Iterator<Entry<Object, String>> i = phoneNum.entrySet().iterator(); i.hasNext();) {
 			Map.Entry<Object, String> entry = i.next();
-			
-			// for (int j = 1; j < phoneNum.size(); j++) {
-			// System.out.println("phone = " + j + " " + entry.getValue());
-			// }
-
-			// System.out.println("phone = " + entry.getValue());
-
-			// String pattern = "(050|044|093|067)[^()][ -a-zA-Z_0-9]+";
 
 			String pattern = "050|044|093|067";
 			Pattern p = Pattern.compile(pattern);
 			Matcher m = p.matcher(entry.getValue());
 
-			
-			
-			String pattern1 = "[ |-]+[ -a-zA-Z_0-9]+";
+			String pattern1 = "[ -a-zA-Z_0-9]+";
 			Pattern p1 = Pattern.compile(pattern1);
 			Matcher m1 = p1.matcher(entry.getValue());
 
-//			while (m.find()) {
-//				System.out.print(entry.getValue().substring(m.start(), m.end()) + " = " + "\n");
-//			}
-
 			while (m.find() && m1.find()) {
-				System.out.print(entry.getValue().substring(m.start(), m.end()) + " = "
-						+ entry.getValue().substring(m1.start(), m1.end()) + "\n");
-			}
 
+				System.out.print(entry.getValue().substring(m.start(), m.end()).replaceAll("[^0-9]", "") + " = "
+						+ entry.getValue().substring(m1.start(), m1.end()).replaceAll("[^0-9]", "") + "\n");
+			}
 		}
 
+		for (Iterator<Entry<Object, String>> i = phoneNum.entrySet().iterator(); i.hasNext();) {
+			Map.Entry<Object, String> entry = i.next();
+			String entry1 = entry.getValue().replaceAll("[^0-9]", "");
+			if (entry1.length() == 7) {
+				String a = entry1;
+				System.out.println("local " + a);
+			}
+
+			if (entry1.length() == 5) {
+				String b = entry1;
+				System.out.println("err " + b);
+			}
+			
+			Arrays.toString(entry1);
+
+		}
+		
 	}
 }
