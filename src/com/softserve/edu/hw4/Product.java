@@ -1,9 +1,6 @@
 package com.softserve.edu.hw4;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
-
-import static java.util.Arrays.sort;
 
 public class Product {
         /* 1) Створити клас Product з такими полями: назва продукту та ціна.
@@ -15,27 +12,27 @@ public class Product {
 
     */
         private String name;
-        private int price;
+        private double price;
 
-        // 1 constructor - ініціалізує поля,  назва = класс; нічого не повертає
+        // 1 default constructor - ініціалізує поля,  назва = класс; нічого не повертає
         public Product() {
             name = "";
             price = 0;
         }
 
         // 2 constructor - specified
-        public Product(String name, int price) {
+        public Product(String name, double price) {
             this.name = name;
             this.price = price;
         }
 
         // getter for price
-        public int getPrice() {
+        public double getPrice() {
             return price;
         }
 
         // setter for price
-        public void setPrice(int price) {
+        public void setPrice(double price) {
             this.price = price;
         }
 
@@ -60,19 +57,6 @@ public class Product {
                     ", price=" + price +
                     '}';
         }
-
-        public static void main(String[] args) {
-            // 1st ex
-            Product milk = new Product("milk", 30);
-            Product butter = new Product("butter", 50);
-            Product coffee = new Product("coffee", 100);
-            Product bread = new Product("bread", 10);
-
-            int[] array = new int[] {milk.price, butter.price, coffee.price, bread.price};
-            Arrays.sort(array);
-
-            System.out.println(array[array.length - 1]);
-        }
-    }
+}
 
 

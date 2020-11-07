@@ -10,30 +10,6 @@ import java.util.Objects;
         Запушати код на github у свою вітку.
     */
 
-public static void main(String[] args) {
-        ProductUpd[] array = {
-                new ProductUpd("milk", 30),
-                new ProductUpd("coffee", 130),
-                new ProductUpd("rise", 50),
-                new ProductUpd("onion", 10),
-                new ProductUpd("milk", 30),
-                new ProductUpd("potato", 20),
-                new ProductUpd("coffee", 30),
-                new ProductUpd("milk", 30),
-                new ProductUpd("sausage", 120),
-                new ProductUpd("carrot", 30)
-                };
-
-
-        for (int i=0; i<array.length -1; i++){
-
-        for(int j=i+1;j<array.length;j++){
-        if(array[j].equals(array[i])){
-        System.out.println("Product "+array[j].getName()+" is repeat in: "+j+" and "+i);
-        }
-        }
-        }
-
         // массив з можливістю розширення
 //        ArrayList<ProductUpd> arrProd=new ArrayList<>();
 //        arrProd.add(milk);
@@ -47,18 +23,18 @@ public static void main(String[] args) {
         // System.out.println(array[5]);
 
 
-public class ProductUpd {
-        protected String name;
-        protected double price;
+public class Product {
+        private String name;
+        private double price;
 
         // 1 constructor - ініціалізує поля,  назва = класс; нічого не повертає
-        public ProductUpd() {
+        public Product() {
             name = "";
             price = 0;
         }
 
         // 2 constructor - specified
-        public ProductUpd(String name, double price) {
+        public Product(String name, double price) {
             this.name = name;
             this.price = price;
         }
@@ -69,7 +45,7 @@ public class ProductUpd {
         }
 
         // setter for price
-        public void setPrice(int price) {
+        public void setPrice(double price) {
             this.price = price;
         }
 
@@ -88,16 +64,18 @@ public class ProductUpd {
         @Override
         // override - сигнал компілятору подивитись, чи в батьк. методі існує такий
         public String toString() {
-            return "ProductUpdate{" +
+            return "ProductUpdate[" +
                     "name='" + name + '\'' +
                     ", price=" + price +
-                    '}';
+                    ']';
         }
-
 
         // equals - порівнює обєкти
         @Override
         public boolean equals (Object o) {
+            // System.out.println("\ncurrent = " + this);
+            // System.out.println("o = " + o);
+
             if (this == o) {
                 return true;
             }
@@ -105,9 +83,9 @@ public class ProductUpd {
             if ((o == null) || (getClass() !=o.getClass())) {
                 return false;
             }
-            ProductUpd other = null;
-            if (o instanceof ProductUpd) {
-                other = (ProductUpd) o;
+            Product other = null;
+            if (o instanceof Product) {
+                other = (Product) o;
             }
 
             if ( (other == null) || (price != other.price)
@@ -121,11 +99,9 @@ public class ProductUpd {
             return name.equals(other.name);   // запуск реальної перевірки (тут уже стрінг)
             }
 
-
         // hash code - метод, який гарантує обчислення контр суми обєкта
         @Override
         public int hashCode() {
             return Objects.hash(getName(), getPrice());
         }
     }
-}

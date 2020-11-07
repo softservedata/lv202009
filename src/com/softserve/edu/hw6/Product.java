@@ -28,7 +28,7 @@ public class Product {
         private double price;
 
         // 1 constructor - ініціалізує поля,  назва = класс; нічого не повертає
-        public Product(String coffee, double coffeePrice, int coffeeAroma) {
+        public Product() {
             name = "";
             price = 0;
         }
@@ -39,7 +39,10 @@ public class Product {
             this.price = price;
         }
 
-        // getter for price
+    public Product(String coffee, double coffeePrice, int coffeeAroma) {
+    }
+
+    // getter for price
         public double getPrice() {
             return price;
         }
@@ -64,7 +67,7 @@ public class Product {
         @Override
         // override - сигнал компілятору подивитись, чи в батьк. методі існує такий
         public String toString() {
-            return "ProductUpdate{" +
+            return "Product {" +
                     "name='" + name + '\'' +
                     ", price=" + price +
                     '}';

@@ -1,6 +1,6 @@
 package com.softserve.edu.hw2;
 
-	public class Appl {
+	class Applic {
 
 	    /**
 	     * Method <font color="red">Main</font>

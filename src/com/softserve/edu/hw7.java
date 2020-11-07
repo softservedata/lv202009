@@ -1,5 +1,4 @@
 package com.softserve.edu;
-import com.softserve.edu.hw6.Product;
 
 import java.util.*;
 
@@ -83,23 +82,23 @@ public class hw7{
 
 
         /*  --------------- Example -----------------*/
-        List<Product> prod1 = Arrays.asList(
-                new Product("Coffee", 50),
-                new Product("Bread", 10),
-                new Product("Milk", 20)
-        );
-
-        List<Product> prod2 = Arrays.asList(
-                new Product("Beer", 40),
-                new Product("Coffee", 100),
-                new Product("Sweets", 50)
-        );
-
-        System.out.println("lst1 " + lst1);
-        Set<Integer> set11 = new HashSet<>(lst1);
-
-        System.out.println("lst2 " + lst2);
-        Set<Integer> set22 = new HashSet<>(lst2);
+//        List<Product> prod1 = Arrays.asList(
+//                new Product("Coffee", 50),
+//                new Product("Bread", 10),
+//                new Product("Milk", 20)
+//        );
+//
+//        List<Product> prod2 = Arrays.asList(
+//                new Product("Beer", 40),
+//                new Product("Coffee", 100),
+//                new Product("Sweets", 50)
+//        );
+//
+//        System.out.println("lst1 " + lst1);
+//        Set<Integer> set11 = new HashSet<>(lst1);
+//
+//        System.out.println("lst2 " + lst2);
+//        Set<Integer> set22 = new HashSet<>(lst2);
 
 
     }
