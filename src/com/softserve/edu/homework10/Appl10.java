@@ -21,7 +21,7 @@ public class Appl10 {
         m.reset();
         while (m.find()) {
             list.add(text.substring(m.start(), m.end()));
-            System.out.print(text.substring(m.start(), m.end()) + ".");
+            //System.out.print(text.substring(m.start(), m.end()) + ".");
         }
         System.out.println("\n");
         for (int i=0; i< list.size();i++) {
@@ -31,13 +31,11 @@ public class Appl10 {
             for (int j=i+1; j<list.size(); j++){
                 if (i!=list.size()&&(list.get(i).equals("(")&&!list.get(i+1).equals(")")||list.get(i).equals("[")&&!list.get(i+1).equals("]")
                 ||list.get(i).equals("{")&&!list.get(i+1).equals("}"))){
-                    System.out.println("false");
                     isTrue=false;
                     break;
                 }
                 if (list.get(i).equals("(")&&list.get(j).equals(")")||list.get(i).equals("{")&&list.get(j).equals("}")
                 ||list.get(i).equals("[")&&list.get(j).equals("]")) {
-                    System.out.println("true");
                     isTrue=true;
                     break;
                 }
