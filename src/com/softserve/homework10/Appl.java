@@ -16,9 +16,12 @@ public class Appl {
     }
 
     public static boolean verifyBrackets(String text) {
+
+        if ((text == null) || (text.isEmpty())) {
+            return false;
+        }
         String result = text.replaceAll("(\\\\\\))|(\\\\\\()|(\\\\\\])|(\\\\\\[)|(\\\\\\{)|(\\\\\\})", "")
                 .replaceAll("[^\\(\\)\\{\\]\\}\\[]", "");
-        System.out.println(result);
 
         if (result.isEmpty()) {
             return true;
