@@ -31,7 +31,7 @@ public class Appl10Test {
         String text="(hello) (People) {add} [(]) number [10] and \\(0\\)";
         Appl10 appl=new Appl10();
         boolean actual=appl.verifyBrackets(text);
-        System.out.println("actual: "+actual);
+        System.out.println("Actual: "+actual);
         Assert.assertTrue(actual);
     }
 
@@ -41,7 +41,7 @@ public class Appl10Test {
         String text="(hello) (People) {add} number [10] and \\(0\\)";
         Appl10 appl=new Appl10();
         boolean actual=appl.verifyBrackets(text);
-        System.out.println("actual: "+actual);
+        System.out.println("Actual: "+actual);
         Assert.assertTrue(actual);
     }
 }
