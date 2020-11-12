@@ -15,7 +15,8 @@ public class Appl2 {
         };
 
         for (int i = 0; i < figures.length; i++) {
-            System.out.println("Figure perimeter: " + figures[i].perimeter());
+            System.out.println("Figure: " + figures[i].toString() +
+                    " Figure perimeter: " + figures[i].perimeter());
         }
 
         Product[] CoffeeWine = new Product[]{

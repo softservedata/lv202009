@@ -5,7 +5,7 @@ import com.softserve.edu.hw5.Product;
 import java.util.Objects;
 
 public class Coffee extends com.softserve.edu.hw5.Product {
-    public int aroma;
+    private int aroma;
 
     public int getAroma() {
         return aroma;
