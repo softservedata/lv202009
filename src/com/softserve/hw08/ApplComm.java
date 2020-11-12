@@ -1,5 +1,6 @@
 package com.softserve.hw08;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -17,6 +18,8 @@ public class ApplComm {
         Set<Integer> common = new HashSet<>(lst1);
         common.retainAll(lst2);
         System.out.println("common = " + common);
+        List<Integer> result = new ArrayList<>(common);
+        System.out.println("result = " + result);
     }
 
 }
