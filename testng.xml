@@ -8,29 +8,29 @@
 	<!-- <package name="com.softserve.testng" /> -->
 	<!-- </packages> -->
 		<classes>
-			<class name="com.softserve.testng.BaseConfig" />
-			<class name="com.softserve.testng.FirstTest">
+			<class name="test.java.com.softserve.testng.BaseConfig" />
+			<class name="test.java.com.softserve.testng.FirstTest">
 				<methods>
 					<include name="f1" />
 				</methods>
 			</class>
-			<class name="com.softserve.testng.SecondTest" />
+			<class name="test.java.com.softserve.testng.SecondTest" />
 		</classes>
 	</test> <!-- Test -->
 
 	<test name="Test02">
 		<classes>
-			<class name="com.softserve.testng.FirstTest">
+			<class name="test.java.com.softserve.testng.FirstTest">
 				<methods>
 					<include name="f2" />
 				</methods>
 			</class>
-			<class name="com.softserve.testng.SecondTest">
+			<class name="test.java.com.softserve.testng.SecondTest">
 				<methods>
 					<include name="f2" />
 				</methods>
 			</class>
-			<class name="com.softserve.testng.ThirdTest" />
+			<class name="test.java.com.softserve.testng.ThirdTest" />
 		</classes>
 	</test> <!-- Test -->
 

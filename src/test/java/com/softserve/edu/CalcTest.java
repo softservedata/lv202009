@@ -1,12 +1,9 @@
-package com.softserve.edu;
+package test.java.com.softserve.edu;
 
+import main.java.com.softserve.edu.Calc;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+
 
 public class CalcTest {
     private Calc calc;

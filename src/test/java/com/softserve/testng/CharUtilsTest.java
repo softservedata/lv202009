@@ -1,10 +1,10 @@
-package com.softserve.testng;
+package test.java.com.softserve.testng;
 
+import main.java.com.softserve.edu.CharUtils;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.softserve.edu.CharUtils;
 
 public class CharUtilsTest {
 	

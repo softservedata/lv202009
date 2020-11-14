@@ -10,7 +10,7 @@
 		<parameter name="implicitWait" value="30" />
 		<parameter name="number" value="234" />
 		<classes>
-			<class name="com.softserve.testng.TestNGTest6" />
+			<class name="test.java.com.softserve.testng.TestNGTest6" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

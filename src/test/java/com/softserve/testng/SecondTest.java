@@ -1,4 +1,4 @@
-package com.softserve.testng;
+package test.java.com.softserve.testng;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;

@@ -10,7 +10,7 @@
 			</run>
 		</groups>
 		<classes>
-			<class name="com.softserve.testng.TestNGTest5" />
+			<class name="test.java.com.softserve.testng.TestNGTest5" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

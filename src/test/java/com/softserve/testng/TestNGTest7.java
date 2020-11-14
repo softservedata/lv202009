@@ -1,8 +1,8 @@
-package com.softserve.testng;
-import java.util.Vector;
-
+package test.java.com.softserve.testng;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.util.Vector;
 
 public class TestNGTest7 {
 
