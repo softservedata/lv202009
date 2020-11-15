@@ -21,7 +21,7 @@ public class Appl {
                 .replaceAll("[^\\(\\)\\{\\]\\}\\[]", "");
 
         if (result.isEmpty()) {
-            return true;
+            return false;
         } else {
             Stack<Character> stack = new Stack<>();
             for (int i = 0; i < result.length(); i++) {
