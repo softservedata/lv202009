@@ -1,9 +1,10 @@
 package com.softserve.homework11;
 
 import com.softserve.edu.homework10.Appl10;
-import org.junit.*;
+import org.testng.Assert;
+import org.testng.annotations.*;
 
-public class Appl10Test {
+public class Appl10Test2 {
 
     @BeforeClass
     public static void beforeClass() throws Exception {
@@ -15,20 +16,22 @@ public class Appl10Test {
         System.out.println("After class");
     }
 
-    @Before
+    @BeforeMethod
     public void setUp() throws Exception {
-        System.out.println("Before");
+        System.out.println("Before method");
     }
 
-    @After
+    @AfterMethod
     public void tearDown() throws Exception {
-        System.out.println("After");
+        System.out.println("After method");
     }
 
-    @Test
-    public void verifyBrackets1() throws Exception{
-        System.out.println("Test1");
-        String text="(hello) (People) {add} [(]) number [10] and \\(0\\)";
+    @Test (groups = "method1")
+    @Parameters(value="number")
+    public void verifyBracketsPositive(int number) throws Exception{
+        System.out.println("suite2 Test1 positive");
+        System.out.println("Parameterized Number is: " +number);
+        String text="(hello) (People) {add} number [10] and \\(0\\)";
         Appl10 appl=new Appl10();
         boolean actual=appl.verifyBrackets(text);
         System.out.println("Actual: "+actual);
@@ -36,9 +39,9 @@ public class Appl10Test {
     }
 
     @Test
-    public void verifyBrackets2() throws Exception{
-        System.out.println("Test2");
-        String text="(hello) (People) {add} number [10] and \\(0\\)";
+    public void verifyBracketsNegative() throws Exception{
+        System.out.println("suite2 Test2 negative");
+        String text="(hello) (People) {add} [(]) number [10] and \\(0\\)";
         Appl10 appl=new Appl10();
         boolean actual=appl.verifyBrackets(text);
         System.out.println("Actual: "+actual);
