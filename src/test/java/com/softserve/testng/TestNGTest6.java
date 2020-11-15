@@ -21,7 +21,7 @@ public class TestNGTest6 {
     @Test
     @Parameters(value = "number")
     public void parameterIntTest(int number) {
-        // From testNG.xml
+        //From testNG.xml
         System.out.println("Parameterized Number is: " + (number + 1));
     }
 
