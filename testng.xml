@@ -8,13 +8,14 @@
 	<!-- <package name="com.softserve.testng" /> -->
 	<!-- </packages> -->
 		<classes>
-			<class name="com.softserve.testng.BaseConfig" />
-			<class name="com.softserve.testng.FirstTest">
-				<methods>
-					<include name="f1" />
-				</methods>
-			</class>
-			<class name="com.softserve.testng.SecondTest" />
+			<class name="com.softserve.edu.SimpleTest" />
+<!-- 			<class name="com.softserve.testng.BaseConfig" /> -->
+<!-- 			<class name="com.softserve.testng.FirstTest"> -->
+<!-- 				<methods> -->
+<!-- 					<include name="f1" /> -->
+<!-- 				</methods> -->
+<!-- 			</class> -->
+<!-- 			<class name="com.softserve.testng.SecondTest" /> -->
 		</classes>
 	</test> <!-- Test -->
 
