@@ -29,14 +29,14 @@ public class SimpleTest {
         //Thread.sleep(1000); // For Presentation Only
         //
         WebElement element = driver.findElement(By.name("q"));
-        element.sendKeys("Cheese!" + Keys.ENTER);
-         //Thread.sleep(1000); // For Presentation Only
-        System.out.println("1. Page title is: " + driver.getTitle());
-        //element.sendKeys("Cheese!");
+        //element.sendKeys("Cheese!" + Keys.ENTER);
+        //Thread.sleep(1000); // For Presentation Only
+        //System.out.println("1. Page title is: " + driver.getTitle());
+        element.sendKeys("Cheese!");
         // Thread.sleep(2000); // For Presentation Only
         //
-        // element.submit();
-        // System.out.println("1. Page title is: " + driver.getTitle());
+        element.submit();
+        System.out.println("1. Page title is: " + driver.getTitle());
         // Thread.sleep(1000); // For Presentation Only
         System.out.println("2. Page title is: " + driver.getTitle());
         //
