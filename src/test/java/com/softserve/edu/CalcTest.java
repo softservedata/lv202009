@@ -1,12 +1,7 @@
 package com.softserve.edu;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class CalcTest {
     private Calc calc;
@@ -34,9 +29,9 @@ public class CalcTest {
 
     @DataProvider//(parallel = true)
     public Object[][] addData() {
-        return new Object[][] {
-                { 4, 4, 8 },
-                { 4, 5 , 9 },
+        return new Object[][]{
+                {4, 4, 8},
+                {4, 5, 9},
         };
     }
 
@@ -49,9 +44,9 @@ public class CalcTest {
 
     @DataProvider//(parallel = true)
     public Object[][] divData() {
-        return new Object[][] {
-                { 20, 4, 5 },
-                { 20, 8 , 2.5 },
+        return new Object[][]{
+                {20, 4, 5},
+                {20, 8, 2.5},
         };
     }
 

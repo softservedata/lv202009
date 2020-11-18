@@ -12,8 +12,8 @@ public class TestNGTest2 {
     }
 
     // тест не ранити;
-    @Test(enabled=false)
-    public void division2( ) {
+    @Test(enabled = false)
+    public void division2() {
         System.out.println("Method is not ready yet");
     }
 

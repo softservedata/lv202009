@@ -19,7 +19,7 @@ public class TestNGTest4 {
         long print = current;
         while (current - start < 1000) {
             current = System.currentTimeMillis();
-            if (current - print >100) {
+            if (current - print > 100) {
                 print = current;
                 System.out.println("Time = " + (current - start));
             }
