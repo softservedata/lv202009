@@ -10,13 +10,17 @@ public class Product {
 
 	private String name;
 	private int price;
-
+	
 	public Product(String name, int price) {
-		super();
 		this.name = name;
 		this.price = price;
 	}
 
+	public Product() {
+		name = "";
+		price = 0;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -35,7 +39,7 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [name=" + name + ", price=" + price + "]";
+		return "Product [name = " + name + ", price = " + price + "]";
 
 	}
 
@@ -71,7 +75,7 @@ public class Product {
 		for (int i = 0; i <= pr.length - 1; i++) {
 			for (int j = i + 1; j <= pr.length - 1; j++) {
 				if (pr[i].equals(pr[j])) {
-					System.out.println("Same products: " + pr[i] + pr[j]);
+					System.out.println("equals - Same products: " + pr[i] + pr[j]);
 				}
 			}
 		}
@@ -83,20 +87,33 @@ public class Product {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(price);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + price;
 		return result;
 	}
 
 	@Override
-	public boolean equals(Object o) {
-		if (this == o)
+	public boolean equals(Object obj) {
+		if (this == obj)
 			return true;
-		if (o == null || getClass() != o.getClass())
+		if ((obj == null)||(getClass() != obj.getClass()))
 			return false;
-		Product product = (Product) o;
-		return Float.compare(product.price, price) == 0 && Objects.equals(name, product.name);
+		Product other = null;
+		if (obj instanceof Product)
+			other = (Product) obj;
+		//
+		if ((price != other.price)
+			|| (other == null)
+			|| ((name == null) && (other.name != null))
+			|| ((name != null) && (other.name == null))) {
+				return false;
+			}
+		
+		if ((name != null) && (other.name != null))
+			return true;
+		
+	
+		return name.equals(other.name);
 	}
 
+	
 }
