@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 
 public class TestNGTest10 {
 
+    // залежні тести - коли можна обєднати декілька; коли перший провалився - другий не зараниться
     @Test
     public void method1() {
         System.out.println("This is method 1");

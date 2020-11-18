@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 
 public class TestNGTest10a {
 
+    // задати пріоритети для тестів
     @Test(priority = 3)
     public void method1() {
         System.out.println("This is method 1");

@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 public class TestNGTest5 {
 
+    // спосіб групування - виставляти групи на наші тести (придумані нами); можна запускати групами
     @BeforeClass(groups = "method4")
     public void beforeClass() {
         System.out.println("\t\t@BeforeClass");

@@ -10,15 +10,20 @@
   <url>http://maven.apache.org</url>
 
   <properties>
+    <!-- - - - - - Credentionals - - - - - -->
+    <application.password>null123</application.password>
+    <run.testng.xml>testng.xml</run.testng.xml>
     <!-- - - - - - Encoding - - - - - -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
     <!-- - - - - - Java - - - - - -->
     <java.version>1.8</java.version>
+    <!-- - - - - - Reports - - - - - -->
+    <testng.reports.directory>./target/surefire-reports/test-output</testng.reports.directory>
   </properties>
 
   <dependencies>
 
+    <!-- - - - - - Test - - - - - -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -66,11 +71,11 @@
     </dependency>
 
     <!-- - - - Mock Object - - - -->
-<!--     <dependency>-->
-<!--     <groupId>org.mockito</groupId>-->
-<!--     <artifactId>mockito-all</artifactId>-->
-<!--     <version>1.10.19</version>-->
-<!--     </dependency>-->
+    <!-- <dependency> -->
+    <!-- <groupId>org.mockito</groupId> -->
+    <!-- <artifactId>mockito-all</artifactId> -->
+    <!-- <version>1.10.19</version> -->
+    <!-- </dependency> -->
 
     <dependency>
       <groupId>org.powermock</groupId>
@@ -102,11 +107,11 @@
     </dependency>
 
     <!-- - - - - - DB - - - - - -->
-<!--     <dependency>-->
-<!--     <groupId>javax.transaction</groupId>-->
-<!--     <artifactId>jta</artifactId>-->
-<!--     <version>${javax.transaction.version}</version>-->
-<!--     </dependency>-->
+    <!-- <dependency> -->
+    <!-- <groupId>javax.transaction</groupId> -->
+    <!-- <artifactId>jta</artifactId> -->
+    <!-- <version>${javax.transaction.version}</version> -->
+    <!-- </dependency> -->
 
     <dependency>
       <groupId>net.sourceforge.jtds</groupId>
@@ -120,17 +125,17 @@
       <version>8.0.22</version>
     </dependency>
 
-     <dependency>
-     <groupId>org.postgresql</groupId>
-     <artifactId>postgresql</artifactId>
-     <version>9.4-1206-jdbc41</version>
-     <exclusions>
-     <exclusion>
-     <groupId>org.slf4j</groupId>
-     <artifactId>slf4j-simple</artifactId>
-     </exclusion>
-     </exclusions>
-     </dependency>
+    <!-- <dependency> -->
+    <!-- <groupId>org.postgresql</groupId> -->
+    <!-- <artifactId>postgresql</artifactId> -->
+    <!-- <version>9.4-1206-jdbc41</version> -->
+    <!-- <exclusions> -->
+    <!-- <exclusion> -->
+    <!-- <groupId>org.slf4j</groupId> -->
+    <!-- <artifactId>slf4j-simple</artifactId> -->
+    <!-- </exclusion> -->
+    <!-- </exclusions> -->
+    <!-- </dependency> -->
 
     <!-- - - - Read from Excel formats, etc. - - - -->
     <dependency>
@@ -171,6 +176,7 @@
 
   <build>
     <plugins>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
@@ -195,14 +201,28 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.22.2</version>
+        <!-- <configuration> -->
+        <!-- <includes> -->
+        <!-- <include>**/*.java</include> -->
+        <!-- </includes> -->
+        <!-- </configuration> -->
         <configuration>
-          <includes>
-            <include>**/*.java</include>
-          </includes>
+          <argLine>-Xms512m -Xmx1024m</argLine>
+          <skipTests>false</skipTests>
+          <systemPropertyVariables>
+            <surefire.application.password>
+              ${application.password}
+            </surefire.application.password>
+          </systemPropertyVariables>
+          <suiteXmlFiles>
+            <!-- <suiteXmlFile>testng.xml</suiteXmlFile> -->
+            <!-- <suiteXmlFile>testng2.xml</suiteXmlFile> -->
+            <suiteXmlFile>${run.testng.xml}</suiteXmlFile>
+          </suiteXmlFiles>
+          <reportsDirectory>${testng.reports.directory}</reportsDirectory>
         </configuration>
       </plugin>
 
     </plugins>
   </build>
-
 </project>

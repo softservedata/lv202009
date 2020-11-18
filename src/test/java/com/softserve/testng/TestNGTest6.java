@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 public class TestNGTest6 {
 
+    // передавати параметри, дані, малозмінні - типу пароль....
     @BeforeClass
     public void beforeClass(ITestContext context) {
         // From testNG.xml
@@ -24,6 +25,9 @@ public class TestNGTest6 {
         // From testNG.xml
         System.out.println("Parameterized Number is: " + (number + 1));
     }
+
+    // Мавен: з ПОМ файлу прописана змінна surefire.application.password, через яку витягується пароль
+    // з Вінди - пароль на ОС, юзера Вінди
 
     @Test
     public void checkApp() {

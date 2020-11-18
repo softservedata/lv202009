@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 public class TestNGTest7 {
 
+
     @DataProvider(name = "Data-Provider-Function")
     public Object[][] parameterIntTestProvider() {
         return new Object[][] {
@@ -15,6 +16,8 @@ public class TestNGTest7 {
         };
     }
 
+    // коли код - це одне, а тесів по цьому коду раниться декілька
+    // тестові дані передаються за допомогою масивів (тут - 2-вимірний)
     @Test(dataProvider = "Data-Provider-Function")
     public void parameterIntTest(Class<?> clzz, String[] numbers) {
         System.out.println("Class is: " + clzz.getName());

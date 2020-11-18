@@ -5,6 +5,8 @@ import org.testng.annotations.Test;
 
 public class TestNGTest4 {
 
+
+    // перфоманс тест - акуратно
     @BeforeTest
     public void beforeTest() {
         System.out.println("\t@BeforeTest TestNGTest4 class");

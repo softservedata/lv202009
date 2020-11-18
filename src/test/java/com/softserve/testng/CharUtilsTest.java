@@ -8,6 +8,7 @@ import com.softserve.edu.CharUtils;
 
 public class CharUtilsTest {
 
+    // parallel = true - запустити всі тести одразу
     @DataProvider//(parallel = true)
     public Object[][] validDataProvider() {
         return new Object[][] {
@@ -20,6 +21,7 @@ public class CharUtilsTest {
         };
     }
 
+    // тестування коду з main-> CharUtils - переведення з Чар в ціле число, і навпаки
     @Test(dataProvider = "validDataProvider")
     public void CharToASCIITest(final char character, final int ascii) {
         int result = CharUtils.CharToASCII(character);
