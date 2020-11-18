@@ -80,6 +80,7 @@ Homework 8 (from 22.10.2020)
         Set<Integer> common = new HashSet<>(list1);
         common.retainAll(list2);
         System.out.println("Common: " + common);
+        List<Integer> result = new ArrayList<>(common);
     }
 }
 
