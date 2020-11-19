@@ -3,10 +3,10 @@ package com.softserve.edu;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -18,11 +18,16 @@ public class SimpleTest {
     public void testWedDriver() throws InterruptedException {
 //        System.setProperty("webdriver.chrome.driver",
 //                "./lib/chromedriver.exe");
+        //
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
+        //
+        //WebDriverManager.firefoxdriver().setup();
+        //WebDriver driver = new FirefoxDriver();
+        //
         // Thread.sleep(1000); // For Presentation Only
         //
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); // default 0
         driver.get("http://www.google.com");
         System.out.println("0. Page title is: " + driver.getTitle());
         // driver.navigate().to("http://www.google.com");
@@ -37,7 +42,7 @@ public class SimpleTest {
         //
         element.submit();
         System.out.println("1. Page title is: " + driver.getTitle());
-        // Thread.sleep(1000); // For Presentation Only
+        //Thread.sleep(1000); // For Presentation Only
         System.out.println("2. Page title is: " + driver.getTitle());
         //
         // driver.findElement(By.cssSelector("a[href*='en.wikipedia.org/wiki/Cheese']")).click();
