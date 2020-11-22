@@ -10,6 +10,7 @@
 	<!-- </packages> -->
 		<classes>
 			<class name="com.softserve.hw15.Currency" />
+			<class name="com.softserve.hw16.Mac" />
 <!-- 			<class name="com.softserve.edu.SimpleTest" /> -->
 <!-- 			<class name="com.softserve.testng.BaseConfig" /> -->
 <!-- 			<class name="com.softserve.testng.FirstTest"> -->
