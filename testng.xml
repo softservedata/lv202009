@@ -3,17 +3,19 @@
 <suite name="All Test Suite">
     <parameter name="number" value="2"/>
     <test verbose="2" preserve-order="true" name="C:/Users/Dmitriy/IdeaProjects/lv202009mvn">
-        <groups>
+      <!--  <groups>
             <run>
                 <include name="method1"/>
             </run>
-        </groups>
+        </groups> -->
         <classes>
-            <class name="com.softserve.homework11.Appl10Test1">
+            <class name="com.softserve.homework15.HW15Test"></class>
+            <class name="com.softserve.homework16.HW16Test"></class>
+            <!--  <class name="com.softserve.homework11.Appl10Test1">
                 <methods> <include name="verifyBracketsPositive2"/> </methods>
             </class>
             <class name="com.softserve.homework11.Appl10Test2">
-            </class>
+            </class> -->
         </classes>
     </test>
 </suite>
