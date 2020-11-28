@@ -9,8 +9,7 @@
             </run>
         </groups> -->
         <classes>
-            <class name="com.softserve.homework15.HW15Test"></class>
-            <class name="com.softserve.homework16.HW16Test"></class>
+            <class name="com.softserve.homework17.HW17Test"></class>
             <!--  <class name="com.softserve.homework11.Appl10Test1">
                 <methods> <include name="verifyBracketsPositive2"/> </methods>
             </class>
