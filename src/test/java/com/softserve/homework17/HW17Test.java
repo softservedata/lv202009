@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -25,8 +27,8 @@ public class HW17Test {
         System.setProperty("webdriver.chrome.driver","./lib/chromedriver.exe");
         driver=new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
-        wait = new WebDriverWait(driver, 7).withMessage("Element was not found");
+        driver.manage().timeouts().implicitlyWait(30000, TimeUnit.MILLISECONDS);
+
         driver.manage().deleteAllCookies();
         driver.get("http://taqc-opencart.epizy.com/");
     }
