@@ -70,6 +70,7 @@ public class Login {
 		// logout; clear cache; delete cookie; delete session;
 		// Save Screen;
 	}
+	
 
 	@Test
 	public void checkLoginPage() throws InterruptedException {
@@ -80,14 +81,11 @@ public class Login {
 		
 		//Click on Login
 		driver.findElement(By.cssSelector("#top-links > ul > li.dropdown.open > ul li>a[href*='route=account/login']")).click();
-
-
+	
 		//Check if is is a Login page
 		WebElement name = driver.findElement(By.cssSelector("input.btn.btn-primary"));
-		//Assert.assertEquals(driver.findElement(By.partialLinkText("MacBook Pro")).getText(), "MacBook Pro");
-
 		Assert.assertEquals(name.getTagName(), "input");
-		//Thread.sleep(10000);
+	
 	}
 
 }
