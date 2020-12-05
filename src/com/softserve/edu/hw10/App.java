@@ -14,13 +14,14 @@ public class App {
         
     }
     
-    public boolean verifyBrackets(String text) {
+    public static boolean verifyBrackets(String text) {
         boolean isTrue = true;
         
         @SuppressWarnings({ "unchecked", "rawtypes" })
         
         List<String> list = new ArrayList();
         String pattern = "\\(+|\\)+|\\[+|\\]+|\\{+|\\}+";
+        // String pattern = "";
         Pattern p = Pattern.compile(pattern);
         Matcher m = p.matcher(text);
         m.reset();
