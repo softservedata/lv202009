@@ -63,7 +63,7 @@ hs_err_pid*
 /**/doc/
 /**/bin/
 /**/build/
-/**/lib/
+/lib/
 /**/test-output/
 /**/allure-results/
 /**/report/
