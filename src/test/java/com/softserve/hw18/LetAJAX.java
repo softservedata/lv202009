@@ -73,19 +73,7 @@ public class LetAJAX {
 		// logout; clear cache; delete cookie; delete session;
 		// Save Screen;
 	}
-	
-	private void closePopup() {
-		presentationSleep(); // For Presentation ONLY
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		List<WebElement> foooterButton = driver.findElements(By.xpath("//footer[contains(@class,'cookie')]//button"));
-		// System.out.println("***foooterButton.size() = " + foooterButton.size());
-		if (foooterButton.size() > 0) {
-			foooterButton.get(0).click();
-			presentationSleep(); // For Presentation ONLY
-		}
-		driver.manage().timeouts().implicitlyWait(IMPLICITLY_WAIT_SECONDS, TimeUnit.SECONDS);
-	}
-	
+
 
 	@Test
 	public void AJAXWebElement() {

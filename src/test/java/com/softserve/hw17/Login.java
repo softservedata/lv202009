@@ -82,7 +82,7 @@ public class Login {
 		//Click on Login
 		driver.findElement(By.cssSelector("#top-links > ul > li.dropdown.open > ul li>a[href*='route=account/login']")).click();
 	
-		//Check if is is a Login page
+		//Check if it is a Login page
 		WebElement name = driver.findElement(By.cssSelector("input.btn.btn-primary"));
 		Assert.assertEquals(name.getTagName(), "input");
 	
