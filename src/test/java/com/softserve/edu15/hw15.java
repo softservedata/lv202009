@@ -1,0 +1,57 @@
+package com.softserve.edu15;
+
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+//        Homework 15 (from 16.11.2020)
+//        1) Зайти на сайт http://taqc-opencart.epizy.com/
+//        Клікнути на вибір валюти  Currency
+//        Вибрати PoundSterling
+//        Перевірити, чи на сторінці змінилася грошова одиниця
+//        Запушати код на github у свою вітку.
+
+
+public class hw15 {
+
+    @Test
+    public void testWedDriver() throws InterruptedException {
+//        System.setProperty("webdriver.chrome.driver",
+//                "./lib/chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        // Thread.sleep(1000); // For Presentation Only
+        //
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.get("http://taqc-opencart.epizy.com/");
+        System.out.println("0. Page title is: " + driver.getTitle());
+        // driver.navigate().to("http://www.google.com");
+        //Thread.sleep(1000); // For Presentation Only
+        //
+        driver.findElement(By.xpath("//i[@class='fa fa-caret-down']")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.name("GBP")).click();
+
+        Thread.sleep(1000);
+
+        //
+        // driver.findElement(By.cssSelector("a[href*='en.wikipedia.org/wiki/Cheese']")).click();
+        //driver.findElement(By.partialLinkText("Cheese - Wikipedia")).click();
+        // Thread.sleep(2000); // For Presentation Only
+        //System.out.println("3. Page title is: " + driver.getTitle());
+        //
+        //WebElement actual = driver.findElement(By.id("siteSub"));
+        //Assert.assertEquals("From Wikipedia, the free encyclopedia", actual.getText());
+        // Assert.assertEquals(actual.getText(), "From Wikipedia, the free encyclopedia");
+        //
+        Thread.sleep(2000); // For Presentation Only
+        // driver.close();
+        driver.quit();
+    }
+
+}

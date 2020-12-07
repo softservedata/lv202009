@@ -2,7 +2,7 @@ package com.softserve.testng;
 
 import org.testng.annotations.*;
 
-public class SecondTest {
+public class SecondTest1 {
 
     @BeforeSuite
     public void beforeSuite() {
