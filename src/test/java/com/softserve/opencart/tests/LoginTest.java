@@ -1,6 +1,77 @@
 package com.softserve.opencart.tests;
 
-// TODO
-public class LoginTest {
+import org.testng.Assert;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
+import com.softserve.opencart.data.User;
+import com.softserve.opencart.pages.HomePage;
+import com.softserve.opencart.pages.account.EditAccountPage;
+import com.softserve.opencart.pages.account.UnsuccessfulLoginPage;
+
+// TODO
+public class LoginTest extends OpencartTestRunner {
+
+    @DataProvider//(parallel = true)
+    public Object[][] customers() {
+        return new Object[][] {
+            { new User("hahaha@gmail.com", "qwerty", "hahaha") },
+        };
+    }
+    
+    //@Test(dataProvider = "customers")
+    public void checkSuccessful(User validUser) {
+        // Steps
+        EditAccountPage editAccountPage = loadApplication()
+                .gotoLoginPage()
+                .successfulLogin(validUser)
+                .gotoRightPanelEditAccount();
+        presentationSleep(); // For Presentation ONLY
+        //
+        // Check
+        Assert.assertEquals(editAccountPage.getFirstNameFieldText(),
+                validUser.getFirstName());
+        //
+        // Return to Previous State
+        HomePage homePage = editAccountPage.gotoContinue() // optional
+                .gotoRightPanelLogout()
+                //.logout()
+                .gotoContinue();
+        //
+        // Check (optional)
+        Assert.assertTrue(homePage
+                .getSlideshow0FirstImageAttributeSrcText()
+                .contains(HomePage.EXPECTED_IPHONE6));
+        presentationSleep(); // For Presentation ONLY
+    }
+    
+    
+    @DataProvider//(parallel = true)
+    public Object[][] invalidUsers() {
+        return new Object[][] {
+            { new User("hahaha1@gmail.com", "qwerty1", "hahaha1") },
+        };
+    }
+    
+    @Test(dataProvider = "invalidUsers")
+    public void unsuccessfulLogin(User invalidUser) {
+        // Steps
+        UnsuccessfulLoginPage  unsuccessfulLoginPage = loadApplication()
+                .gotoLoginPage()
+                .unsuccessfulLogin(invalidUser);
+        presentationSleep(); // For Presentation ONLY
+        //
+        // Check
+        Assert.assertEquals(unsuccessfulLoginPage.getAlertWarningText(),
+                UnsuccessfulLoginPage.EXPECTED_LOGIN_MESSAGE);
+        //
+        // Return to Previous State
+        HomePage homePage = unsuccessfulLoginPage.gotoHomePage();
+        //
+        // Check (optional)
+        Assert.assertTrue(homePage
+                .getSlideshow0FirstImageAttributeSrcText()
+                .contains(HomePage.EXPECTED_IPHONE6));
+        presentationSleep(); // For Presentation ONLY
+    }
 }
