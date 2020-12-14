@@ -55,6 +55,7 @@ public class LoginTest extends OpencartTestRunner {
     
     @Test(dataProvider = "invalidUsers")
     public void unsuccessfulLogin(User invalidUser) {
+        logger.info("Method unsuccessfulLogin(" + invalidUser + ") Start");
         // Steps
         UnsuccessfulLoginPage  unsuccessfulLoginPage = loadApplication()
                 .gotoLoginPage()

@@ -5,12 +5,17 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import com.softserve.edu21.Appl;
 import com.softserve.opencart.data.Currencies;
 import com.softserve.opencart.pages.account.AccountLogoutPage;
 import com.softserve.opencart.pages.account.LoginPage;
 
 public abstract class TopPart {
+    public static final Logger logger = LoggerFactory.getLogger(TopPart.class);
+    //
     protected final String OPTION_NULL_MESSAGE = "DropdownComponent is null";
     protected final String OPTION_NOT_FOUND_MESSAGE = "Option %s not found in %s";
     protected final String PAGE_DO_NOT_EXIST = "Page do not exist!!!";
@@ -362,9 +367,11 @@ public abstract class TopPart {
 
     // dropdownGuest
     public LoginPage gotoLoginPage() {
+        logger.debug("gotoLoginPage() start");
         openMyAccountDropdown();
         createDropdownGuest();
         clickDropdownGuestLogin();
+        logger.debug("gotoLoginPage() done");
         return new LoginPage(driver);
     }
 

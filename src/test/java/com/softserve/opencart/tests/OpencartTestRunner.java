@@ -13,6 +13,8 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -31,6 +33,7 @@ public abstract class OpencartTestRunner {
     private final Long ONE_SECOND_DELAY = 1000L;
     private final String TIME_TEMPLATE = "yyyy-MM-dd_HH-mm-ss";
     //
+    protected final Logger logger = LoggerFactory.getLogger(this.getClass());
     private String serverUrl = "http://taqc-opencart.epizy.com/";
     // private WebDriver driver;
     private Map<Long, WebDriver> drivers;
@@ -60,7 +63,8 @@ public abstract class OpencartTestRunner {
         // TimeUnit.SECONDS);
         // driver.manage().window().maximize();
         for (Map.Entry<String, String> entry : context.getCurrentXmlTest().getAllParameters().entrySet()) {
-            System.out.println("Key: " + entry.getKey() + "  Value: " + entry.getValue());
+            logger.debug("Key: " + entry.getKey() + "  Value: " + entry.getValue());
+            //System.out.println("Key: " + entry.getKey() + "  Value: " + entry.getValue());
             if (entry.getKey().toLowerCase().equals(BASE_URL)) {
                 serverUrl = entry.getValue();
                 break;
@@ -96,7 +100,8 @@ public abstract class OpencartTestRunner {
         if (!result.isSuccess()) {
             getDriver().manage().deleteAllCookies();
             // Take Screenshot, save sourceCode, save to log, prepare report, Return to
-            System.out.println("***Test " + result.getName() + " ERROR");
+            logger.error("***Test " + result.getName() + " ERROR");
+            //System.out.println("***Test " + result.getName() + " ERROR");
             takeScreenShot(result.getName());
             // previous state, logout, etc.
         }
