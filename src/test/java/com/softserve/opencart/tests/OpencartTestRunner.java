@@ -40,7 +40,7 @@ public abstract class OpencartTestRunner {
         if (currentWebDriver == null) {
             currentWebDriver = new ChromeDriver();
             currentWebDriver.manage().timeouts().implicitlyWait(IMPLICITLY_WAIT_SECONDS, TimeUnit.SECONDS);
-            //currentWebDriver.manage().window().maximize();
+            currentWebDriver.manage().window().maximize();
             drivers.put(Thread.currentThread().getId(), currentWebDriver);
         }
         return currentWebDriver;

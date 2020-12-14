@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.softserve.opencart.data.Currencies;
+import com.softserve.opencart.pages.account.AccountLogoutPage;
+import com.softserve.opencart.pages.account.LoginPage;
 
 public abstract class TopPart {
     protected final String OPTION_NULL_MESSAGE = "DropdownComponent is null";
@@ -21,6 +23,8 @@ public abstract class TopPart {
     //
     protected WebDriver driver;
     //
+    // private final String BUTTON_CURRENCY_CSSSELECTOR =
+    // ".btn.btn-link.dropdown-toggle";
     private WebElement currency;
     private WebElement myAccount;
     private WebElement wishList;
@@ -60,6 +64,7 @@ public abstract class TopPart {
     // currency
     public WebElement getCurrency() {
         // return driver.findElement(By.cssSelector(".btn.btn-link.dropdown-toggle"));
+        // return driver.findElement(By.cssSelector(BUTTON_CURRENCY_CSSSELECTOR));
         return currency;
     }
 
@@ -214,7 +219,8 @@ public abstract class TopPart {
         }
         getDropdownComponent().clickDropdownOptionByPartialName(optionName);
         dropdownComponent = null;
-        //closeDropdownComponent();
+        // TODO Create page; Refresh page
+        // closeDropdownComponent();
     }
 
     private void closeDropdownComponent() {
@@ -238,14 +244,14 @@ public abstract class TopPart {
 
     private void clickDropdownGuestRegister() {
         getDropdownGuest().clickRegister();
-        //dropdownGuest = null;
+        // dropdownGuest = null;
         closeDropdownGuest();
     }
 
     private void clickDropdownGuestLogin() {
         getDropdownGuest().clickLogin();
-        //dropdownGuest = null;
-        closeDropdownGuest();
+        dropdownGuest = null;
+        //closeDropdownGuest();
     }
 
     private void closeDropdownGuest() {
@@ -307,7 +313,8 @@ public abstract class TopPart {
         createDropdownComponent(By.cssSelector(LIST_CURRENCIES_CSSSELECTOR));
     }
 
-    // protected void clickCurrencyByPartialName(String currencyName) { // Code Smell
+    // protected void clickCurrencyByPartialName(String currencyName) { // Code
+    // Smell
     protected void clickCurrencyByPartialName(Currencies optionName) {
         openCurrencyDropdownComponent();
         // clickDropdownComponentByPartialName(currencyName);
@@ -347,10 +354,26 @@ public abstract class TopPart {
     */
 
     // Business Logic
-    
+
     public HomePage gotoHomePage() {
         clickLogo();
         return new HomePage(driver);
+    }
+
+    // dropdownGuest
+    public LoginPage gotoLoginPage() {
+        openMyAccountDropdown();
+        createDropdownGuest();
+        clickDropdownGuestLogin();
+        return new LoginPage(driver);
+    }
+
+    // dropdownLogged
+    public AccountLogoutPage logout() {
+        openMyAccountDropdown();
+        createDropdownLogged();
+        clickDropdownLoggedLogout();
+        return new AccountLogoutPage(driver);
     }
     
 }

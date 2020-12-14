@@ -1,19 +1,26 @@
 package com.softserve.opencart.data;
 
 public enum Currencies {
-	EURO("Euro"),
-	POUND_STERLING("Pound Sterling"),
-	US_DOLLAR("US Dollar");
-	//
-	private String name;
+    EURO("Euro", "\u20ac"),
+    POUND_STERLING("Pound Sterling", "\u00a3"),
+    US_DOLLAR("US Dollar", "$");
 
-	private Currencies(String name) {
-		this.name = name;
-	}
+    //
+    private String name;
+    private String symbol;
 
-	@Override
-	public String toString() {
-		return name;
-	}
+    private Currencies(String name, String symbol) {
+        this.name = name;
+        this.symbol = symbol;
+    }
+
+    public String GetSymbol() {
+        return symbol;
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 
 }
