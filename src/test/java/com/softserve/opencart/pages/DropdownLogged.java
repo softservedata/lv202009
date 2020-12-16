@@ -20,16 +20,11 @@ public class DropdownLogged {
     }
 
     private void initElements() {
-        myAccount = driver.findElement(
-                By.xpath("//ul[@class='dropdown-menu dropdown-menu-right']//a[contains(@href,'account/account')]"));
-        orderHistory = driver.findElement(
-                By.xpath("//ul[@class='dropdown-menu dropdown-menu-right']//a[contains(@href,'account/order')]"));
-        transactions = driver.findElement(
-                By.xpath("//ul[@class='dropdown-menu dropdown-menu-right']//a[contains(@href,'account/transaction')]"));
-        downloads = driver.findElement(
-                By.xpath("//ul[@class='dropdown-menu dropdown-menu-right']//a[contains(@href,'account/download')]"));
-        logout = driver.findElement(
-                By.xpath("//ul[@class='dropdown-menu dropdown-menu-right']//a[contains(@href,'account/logout')]"));
+        myAccount = driver.findElement(By.xpath("//ul[@class='dropdown-menu dropdown-menu-right']//a[contains(@href,'account/account')]"));
+        orderHistory = driver.findElement(By.xpath("//ul[@class='dropdown-menu dropdown-menu-right']//a[contains(@href,'account/order')]"));
+        transactions = driver.findElement(By.xpath("//ul[@class='dropdown-menu dropdown-menu-right']//a[contains(@href,'account/transaction')]"));
+        downloads = driver.findElement(By.xpath("//ul[@class='dropdown-menu dropdown-menu-right']//a[contains(@href,'account/download')]"));
+        logout = driver.findElement(By.xpath("//ul[@class='dropdown-menu dropdown-menu-right']//a[contains(@href,'account/logout')]"));
     }
 
     // Page Object
