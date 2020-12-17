@@ -26,6 +26,7 @@ import org.testng.annotations.BeforeSuite;
 import com.softserve.opencart.pages.HomePage;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Step;
 
 public abstract class OpencartTestRunner {
     private final String BASE_URL = "url";
@@ -137,6 +138,7 @@ public abstract class OpencartTestRunner {
         }
     }
 
+    @Step("STEP Load Application")
     protected HomePage loadApplication() {
         // return new HomePage(driver);
         return new HomePage(getDriver());

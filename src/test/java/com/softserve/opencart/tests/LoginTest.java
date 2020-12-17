@@ -9,7 +9,20 @@ import com.softserve.opencart.pages.HomePage;
 import com.softserve.opencart.pages.account.EditAccountPage;
 import com.softserve.opencart.pages.account.UnsuccessfulLoginPage;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Issue;
+import io.qameta.allure.Link;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
+
 // TODO
+@Owner(value = "OWNER First name")
+@Epic("EPIC AllureTest")
+@Feature("FEATURE SearchAllureTes")
 public class LoginTest extends OpencartTestRunner {
 
     @DataProvider//(parallel = true)
@@ -53,6 +66,12 @@ public class LoginTest extends OpencartTestRunner {
         };
     }
     
+    @Description("TEST DESCRIPTION: class SearchAllureTest; findByXPath().")
+    @Severity(SeverityLevel.BLOCKER)
+    @Story("STORY SearchAllureTest")
+    @Issue("SSITAGT-1")
+    @Link(name = "LINK goto site", url = "http://taqc-opencart.epizy.com/")
+    //@TmsLink(value = "TL-678")
     @Test(dataProvider = "invalidUsers")
     public void unsuccessfulLogin(User invalidUser) {
         logger.info("Method unsuccessfulLogin(" + invalidUser + ") Start");

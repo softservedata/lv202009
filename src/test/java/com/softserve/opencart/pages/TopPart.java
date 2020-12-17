@@ -13,6 +13,8 @@ import com.softserve.opencart.data.Currencies;
 import com.softserve.opencart.pages.account.AccountLogoutPage;
 import com.softserve.opencart.pages.account.LoginPage;
 
+import io.qameta.allure.Step;
+
 public abstract class TopPart {
     public static final Logger logger = LoggerFactory.getLogger(TopPart.class);
     //
@@ -360,12 +362,14 @@ public abstract class TopPart {
 
     // Business Logic
 
+    @Step("STEP Goto HomePage")
     public HomePage gotoHomePage() {
         clickLogo();
         return new HomePage(driver);
     }
 
     // dropdownGuest
+    @Step("STEP Goto LoginPage")
     public LoginPage gotoLoginPage() {
         logger.debug("gotoLoginPage() start");
         openMyAccountDropdown();

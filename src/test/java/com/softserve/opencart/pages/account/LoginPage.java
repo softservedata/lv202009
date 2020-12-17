@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 
 import com.softserve.opencart.data.User;
 
+import io.qameta.allure.Step;
+
 public class LoginPage extends AccountSidebarGuestPart {
 
 	private WebElement email;
@@ -107,6 +109,7 @@ public class LoginPage extends AccountSidebarGuestPart {
 		return new MyAccountPage(driver);
 	}
 
+	@Step("STEP Unsuccessful Login")
 	public UnsuccessfulLoginPage unsuccessfulLogin(User invalidUser){
 		fillLogin(invalidUser);
 		return new UnsuccessfulLoginPage(driver);
